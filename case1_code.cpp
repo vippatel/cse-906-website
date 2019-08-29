@@ -2,19 +2,20 @@
 using namespace std;
 
 struct tag {
-	unsigned long long int tag_value, counter;
+	unsigned long long int tag_value, counter; // LRU Counter.
 	bool valid, dirty, last_access; 
 };
 
 struct cache {
-	unsigned long long int cache_size, params;
-	int tag_bits, cache_assoc, cache_line_size, cache_lines, cache_sets, set_index_size, block_offset;
-	std::vector< std::vector <tag> > cache_matrix;
+	unsigned long long int cache_size; // In Bytes.
+	int cache_assoc, cache_line_size, cache_lines, cache_sets, set_index_size, block_offset;
+	std::vector< std::vector <tag> > cache_matrix; // 2D Array of tags.
 };
 
 #define MIN_RANGE 0
-#define MAX_RANGE 7
+#define MAX_RANGE 18456932511
 
+// For random number generation if needed.
 int random_num()
 {
 	std::random_device rd;
@@ -24,18 +25,17 @@ int random_num()
 	return random();
 }
 
-void initialize_cache (cache *L2, cache *L3, char *name) {
-	std::fstream config;
-	config.open(name, std::ios::in);
+void initialize_cache (cache *L2, cache *L3, char *config_txt) {
 
-	std::string str;
+	// Read a CSV File and process it.
+	std::fstream config;
+	config.open(config_txt, std::ios::in);
+	std::string str = "";
 	std::vector< std::vector<int> > cache_config;
 
 	while(std::getline(config, str)) {
-
 		std::stringstream ss(str);
 		std::vector<int> tokens;
-
 		while(ss) {
 			std::string token;
 			if(!std::getline(ss, token, ','))
@@ -46,12 +46,10 @@ void initialize_cache (cache *L2, cache *L3, char *name) {
 				error.what();
 			}
 		}
-
 		cache_config.push_back(tokens);
 	}
 
 	// L2 Cache.
-
 	L2->cache_size = cache_config[0][0] << 10;
 	L2->cache_assoc = cache_config[0][1];
 	L2->cache_line_size = cache_config[0][2];
@@ -78,14 +76,13 @@ void initialize_cache (cache *L2, cache *L3, char *name) {
 	}
 
 	// L3 Cache.
-
-        L3->cache_size = cache_config[1][0] << 10;
-        L3->cache_assoc = cache_config[1][1];
-        L3->cache_line_size = cache_config[1][2];
+     L3->cache_size = cache_config[1][0] << 10;
+     L3->cache_assoc = cache_config[1][1];
+     L3->cache_line_size = cache_config[1][2];
 
 	L3->block_offset = (int)log2(L3->cache_line_size);
-        L3->cache_lines = L3->cache_size >> L3->block_offset;
-        L3->cache_sets = L3->cache_lines >> (int)log2(L3->cache_assoc);
+     L3->cache_lines = L3->cache_size >> L3->block_offset;
+     L3->cache_sets = L3->cache_lines >> (int)log2(L3->cache_assoc);
 	L3->set_index_size = (int)log2(L3->cache_sets);
 
 	std::vector<tag> temp1;
@@ -102,7 +99,7 @@ void initialize_cache (cache *L2, cache *L3, char *name) {
 
 	for(auto i = 0; i < L3->cache_sets; i++) {
                 L3->cache_matrix.emplace_back(temp1);
-        }
+     }
 
 	//done.
 	config.close();
@@ -155,7 +152,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 			
 		if(l2_hit == false) {
 			
-			std::cout << "L2 MISS : " << l2_set_index << ", " << l2_tag_bits << std::endl;
+			std::cout << "L2 MISS -> SET : " << l2_set_index << ", TAG : " << l2_tag_bits << std::endl;
 			
 			// Check in L3 Cache;
 			for(auto ways = 0; ways < L3->cache_assoc; ways++) {
@@ -172,13 +169,14 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 						L3->cache_matrix[l3_set_index][ways].counter++;
 					}
 					std::cout << "L3 HIT : " << l3_set_index << ", " << hit_way << ", " << l3_tag_bits << std::endl;
+					// TO-DO : LRU Replacement in L2 Cache.
 					break;		
 				}	
 			}	
 			
 			if(l2_hit == false && l3_hit == false) {
 				
-			std::cout << "L3 MISS: " << l3_set_index << ", " << l3_tag_bits << std::endl << std::endl;
+			std::cout << "L3 MISS -> SET : " << l3_set_index << ", TAG : " << l3_tag_bits << std::endl;
 			
 			// L3 is inclusive of L2: An L3 miss fills into L3 and L2. 
 			// An L3 eviction invalidates the corresponding block in L2.
@@ -205,25 +203,26 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 						L2->cache_matrix[l2_set_index][ways].valid = false;
 				}
 
+				// Now block comming from memory. Fill L3 first and then L2.
 				if(!l3_valid_ways.empty()) {
 					int free_way = l3_valid_ways.front();
-					// L3->cache_matrix[l3_set_index][free_way].tag_value = l3_tag_bits; // Fill L3 Set.
+					L3->cache_matrix[l3_set_index][free_way].tag_value = l3_tag_bits; // Fill L3 Set.
 					L3->cache_matrix[l3_set_index][free_way].counter = 0;
 					L3->cache_matrix[l3_set_index][free_way].valid = true;
 					L3->cache_matrix[l3_set_index][free_way].last_access = true;   // A write-access is a hit.
-					// TO-DO : Invalidate in L2.
 				} else {
-					// LRU Cache replacement @L3 Set. TO DO.
+					// LRU Cache replacement [Cache Eviction] @L3 Set. TO DO.
+					// TO-DO : Invalidate in L2 Cache, victim from L3. (Make Empty, Clear tag_bits).
 				}
 				
 				if(!l2_valid_ways.empty()) {
 					int free_way = l2_valid_ways.front();
-					// L2->cache_matrix[l2_set_index][free_way].tag_value = l2_tag_bits; // Fill L2 Set.
+					L2->cache_matrix[l2_set_index][free_way].tag_value = l2_tag_bits; // Fill L2 Set.
 					L2->cache_matrix[l2_set_index][free_way].counter = 0;
 					L2->cache_matrix[l2_set_index][free_way].valid = true;
 					L2->cache_matrix[l2_set_index][free_way].last_access = true;   // A write-access is a hit.
 				} else {
-					// LRU Cache replacement @L2 Set. TO DO.
+					// LRU Cache replacement @L2 Set. Pick an L2 Cache Victim. TO DO.
 				}
 			}
 		}
