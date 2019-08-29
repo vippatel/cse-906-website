@@ -5,7 +5,7 @@ Install gcc/g++ on linux.
 ### Run file :
 
 ```
-sudo g++ -O3 -std=c++17 code.cpp -o trace.out
+sudo g++ -O3 -std=c++17 case1_code.cpp -o trace.out
 ./trace.out <name-prefix-trace> config.txt <#number-of-files>
 ```
 ```
@@ -15,7 +15,7 @@ sudo g++ -O3 -std=c++17 code.cpp -o trace.out
 
 ### Run Example :
 ```
-sudo g++ -std=c++2a -O3 code.cpp -o trace_reader.out
+sudo g++ -std=c++2a -O3 case1_code.cpp -o trace_reader.out
 time ./trace_reader.out gcc.log_l1misstrace config.txt 2
 ```
 
