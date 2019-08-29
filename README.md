@@ -19,6 +19,8 @@ sudo g++ -std=c++2a -O3 code.cpp -o trace_reader.out
 time ./trace_reader.out gcc.log_l1misstrace config.txt 2
 ```
 
+```Please check Assignment.txt and Clarification.txt.```
+
 
 ### Disclaimer
 
