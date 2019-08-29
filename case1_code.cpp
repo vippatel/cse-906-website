@@ -1,9 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define MIN_RANGE 0
-#define MAX_RANGE 18456932511
-
 struct tag {
 	unsigned long long int tag_value, counter; // LRU Counter.
 	bool valid, dirty, last_access; 
@@ -73,7 +70,7 @@ void initialize_cache (cache *L2, cache *L3, char *config_txt) {
 	for(auto ways = 0; ways < L2->cache_assoc; ways++) {
 		tag t;
 		t.tag_value = -999;
-		t.counter = -1;
+		t.counter = 0;
 		t.valid = false;
 		t.dirty = false;
 		t.last_access = false;
@@ -99,7 +96,7 @@ void initialize_cache (cache *L2, cache *L3, char *config_txt) {
 	for(auto ways = 0; ways < L3->cache_assoc; ways++) {
 		tag t;
 		t.tag_value = -999;
-		t.counter = -1;
+		t.counter = 0;
 		t.valid = false;
 		t.dirty = false;
 		t.last_access = false;
@@ -115,17 +112,26 @@ void initialize_cache (cache *L2, cache *L3, char *config_txt) {
 }
 
 // Run LRU Algorithm on LRU Counters for a CACHE SET in below function. We add the tag in L3 Cache.
-unsigned long long int get_lru_cache_vic (cache *X, unsigned long long int index, unsigned long long int val) {
+unsigned long long int get_lru_cache_vic (cache *X, unsigned long long int index, unsigned long long int val, unsigned long long int trace) {
 
-	int assoc = X->cache_assoc;
+	int assoc = X->cache_assoc, min_counter = -1, pos = 0;
 	for(auto j = 0; j < assoc; j++) {
 	// Check who is the LRU victim in the set in terms of j.
 	// Return the tag_bits of the victim and replace with value and address in tag_addr_mapping.
-	
-	
-	
+		if(min_counter > X->cache_matrix[index][j].counter) {
+			min_counter = X->cache_matrix[index][j].counter;
+			pos = j;
+		}
 	}
-	return 0xffffff;
+	unsigned long long int prev_tag_bits = X->cache_matrix[index][pos].tag_value;
+	X->cache_matrix[index][pos].tag_value = val;
+	X->cache_matrix[index][pos].counter = 1;
+	X->cache_matrix[index][pos].valid = true;
+	X->cache_matrix[index][pos].dirty = false;
+	X->cache_matrix[index][pos].last_access = true;
+	X->tag_addr_mapping[val] = trace;
+	std::cout << "[LRU Victim] Cache miss in index : " << index << ", " << pos <<  std::endl;
+	return prev_tag_bits;
 }
 
 // Extract the set index from the 64 bit address given.
@@ -164,14 +170,9 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 			if(l2_tag_bits == exist_tag) {
 				l2_hit = true;
 				hit_way = ways;
-				L2->cache_matrix[l2_set_index][ways].counter = 0;
+				L2->cache_matrix[l2_set_index][ways].counter++;
 				L2->cache_matrix[l2_set_index][ways].last_access = true; 
 				
-				// L2 SET LRU Counter Updation on target SET. It will run only once, when a hit occurs.		
-				for(auto ways = 0; ways < L2->cache_assoc; ways++) {
-					if(ways != hit_way && L2->cache_matrix[l2_set_index][ways].tag_value != -999) 
-					L2->cache_matrix[l2_set_index][ways].counter++;
-				}
 				std::cout << "L2 HIT : " << l2_set_index << ", " << hit_way << ", " << l2_tag_bits << std::endl;
 				break;		
 			}	
@@ -190,11 +191,6 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 					L3->cache_matrix[l3_set_index][ways].counter++;
 					L3->cache_matrix[l3_set_index][ways].last_access = true;                  					
 					
-					// L3 SET LRU Counter Updation on target SET. It will run only once, when a hit occurs.		
-					for(auto ways = 0; ways < L3->cache_assoc; ways++) {
-						if(ways != hit_way && L3->cache_matrix[l3_set_index][ways].tag_value != -999) 
-						L3->cache_matrix[l3_set_index][ways].counter++;
-					}
 					std::cout << "L3 HIT : " << l3_set_index << ", " << hit_way << ", " << l3_tag_bits << std::endl;
 					
 					// TO-DO : LRU Replacement in L2 Cache. Hit in L3 but miss in L2, so replace block.
@@ -241,7 +237,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 					int index = random_num(0, l3_valid_ways.size() - 1); // Choose a free way randomly.
 					int free_way = l3_valid_ways[index];
 					L3->cache_matrix[l3_set_index][free_way].tag_value = l3_tag_bits; // Fill L3 Set.
-					L3->cache_matrix[l3_set_index][free_way].counter = 0;
+					L3->cache_matrix[l3_set_index][free_way].counter = 1;
 					L3->cache_matrix[l3_set_index][free_way].valid = true;
 					L3->cache_matrix[l3_set_index][free_way].dirty = false;
 					L3->cache_matrix[l3_set_index][free_way].last_access = true; // A write-access is a hit.
@@ -249,7 +245,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 				} else {
 				
 					// LRU Cache replacement [Cache Eviction] @L3 Set. TO DO.
-					unsigned long long int l3_vic_tag_bits = get_lru_cache_vic(L3, l3_set_index, l3_tag_bits);
+					unsigned long long int l3_vic_tag_bits = get_lru_cache_vic(L3, l3_set_index, l3_tag_bits, trace_item);
 					unsigned long long int addr = L3->tag_addr_mapping[l3_vic_tag_bits];
 					unsigned long long int addr_tag_bits = addr >> (L2->set_index_size + L2->block_offset);
 					unsigned long long int addr_set_index = get_set_index_bits(addr, L2->set_index_size, L2->block_offset);
@@ -259,7 +255,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 						if(L2->cache_matrix[l2_set_index][ways].tag_value == addr_tag_bits) {
 							auto prev_tag_value = L2->cache_matrix[l2_set_index][ways].tag_value;
 							L2->cache_matrix[l2_set_index][ways].tag_value = -999;
-							L2->cache_matrix[l2_set_index][ways].counter = -1;
+							L2->cache_matrix[l2_set_index][ways].counter = 0;
 							L2->cache_matrix[l2_set_index][ways].valid = false;
 							L2->cache_matrix[l2_set_index][ways].dirty = false;
 							L2->cache_matrix[l2_set_index][ways].last_access = false;
@@ -274,7 +270,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 					int index = random_num(0, l2_valid_ways.size() - 1); // Choose a free way randomly.
 					int free_way = l2_valid_ways[index];
 					L2->cache_matrix[l2_set_index][free_way].tag_value = l2_tag_bits; // Fill L2 Set.
-					L2->cache_matrix[l2_set_index][free_way].counter = 0;
+					L2->cache_matrix[l2_set_index][free_way].counter = 1;
 					L2->cache_matrix[l2_set_index][free_way].valid = true;
 					L2->cache_matrix[l2_set_index][free_way].dirty = true;
 					L2->cache_matrix[l2_set_index][free_way].last_access = true; // A write-access is a hit.
@@ -294,7 +290,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 void print_cache(cache *L2) {
 	for(auto set = 0; set < L2->cache_sets; set++) {
 		for(auto ways = 0; ways < L2->cache_assoc; ways++) {
-			std::cout << L2->cache_matrix[set][ways].tag_value << ", ";
+			std::cout << L2->cache_matrix[set][ways].counter << ", ";
 		}
 		std::cout << std::endl;
 	}
@@ -313,8 +309,8 @@ int main (int argc, char* argv[], char* envp[]) {
 		FILE* trace_reader = fopen(trace_file_name, "rb");
 		assert(trace_reader != NULL);
 		while (!feof(trace_reader)) {
-			fread(&iord, sizeof(int), 1, trace_reader);
-    	   		fread(&type, sizeof(int), 1, trace_reader);
+			fread(&iord, sizeof(unsigned int), 1, trace_reader);
+    	   		fread(&type, sizeof(unsigned int), 1, trace_reader);
         		fread(&addr, sizeof(unsigned long long int), 1, trace_reader);
         		fread(&pc, sizeof(unsigned int), 1, trace_reader);
         		if(type != 0) miss_trace.emplace_back(addr);
