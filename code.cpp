@@ -1,10 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+struct tag {
+	unsigned long long int tag_value;
+	bool valid, dirty, last_access;
+	int counter; 
+};
+
 struct cache {
 	unsigned long long int cache_size, params;
 	int tag_bits, cache_assoc, cache_line_size, cache_lines, cache_sets, set_index_size, block_offset;
-	std::vector< std::vector <unsigned long long int> > cache_matrix;
+	std::vector< std::vector <tag> > cache_matrix;
 };
 
 #define MIN_RANGE 0
@@ -55,8 +61,14 @@ void initialize_cache (cache *L2, cache *L3, char *name) {
 	L2->cache_lines = L2->cache_size >> L2->block_offset;
 	L2->cache_sets = L2->cache_lines >> (int)log2(L2->cache_assoc);
 	L2->set_index_size = (int)log2(L2->cache_sets);
+	
+	std::vector<tag> temp0;
 
-	std::vector<unsigned long long int> temp0 (L2->cache_assoc, 0);
+	for(auto ways = 0; ways < L2->cache_assoc; ways++) {
+		tag t;
+		temp0.emplace_back(t);	
+	}
+
 	for(auto i = 0; i < L2->cache_sets; i++) {
 		L2->cache_matrix.emplace_back(temp0);
 	}
@@ -72,7 +84,13 @@ void initialize_cache (cache *L2, cache *L3, char *name) {
         L3->cache_sets = L3->cache_lines >> (int)log2(L3->cache_assoc);
 	L3->set_index_size = (int)log2(L3->cache_sets);
 
-	std::vector<unsigned long long int> temp1 (L3->cache_assoc, 0);
+	std::vector<tag> temp1;
+
+	for(auto ways = 0; ways < L3->cache_assoc; ways++) {
+		tag t;
+		temp1.emplace_back(t);
+	}
+
 	for(auto i = 0; i < L3->cache_sets; i++) {
                 L3->cache_matrix.emplace_back(temp1);
         }
@@ -106,38 +124,41 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 
 		bool l2_hit = false, l3_hit = false;		
 		
+		std::cout << l2_tag_bits << ", " << l3_tag_bits << std::endl;
+		
 		for(auto ways = 0; ways < L2->cache_assoc; ways++) {
-			auto exist_tag = L2->cache_matrix[l2_set_index][ways];
+			auto exist_tag = L2->cache_matrix[l2_set_index][ways].tag_value;
 			if(l2_tag_bits == exist_tag) {
-				l2_hit = true;				
-				std::cout << "L2 Cache_hit." << std::endl;		
+				l2_hit = true;
+				L2->cache_matrix[l2_set_index][ways].counter++;
+				L2->cache_matrix[l2_set_index][ways].last_access= true;				
+				// std::cout << "L2 Cache_hit." << std::endl;
+				break;		
 			}	
 		} 
 		
 		if(l2_hit == false) {
 			
-			std::cout << "L2 Cache_miss." << std::endl;
+			// std::cout << "L2 Cache_miss." << std::endl;
  			
 			// Check in L3 Cache;
 			for(auto ways = 0; ways < L3->cache_assoc; ways++) {
-			auto exist_tag = L3->cache_matrix[l3_set_index][ways];
-			if(l3_tag_bits == exist_tag) {
-				l3_hit = true;				
-				std::cout << "L3 Cache_hit." << std::endl;		
+			auto exist_tag = L3->cache_matrix[l3_set_index][ways].tag_value;
+				if(l3_tag_bits == exist_tag) {
+					l3_hit = true;
+					L3->cache_matrix[l3_set_index][ways].counter++;
+					L3->cache_matrix[l3_set_index][ways].last_access= true;					
+					// std::cout << "L3 Cache_hit." << std::endl;
+					break;		
 				}	
 			}	
 			
 			if(l2_hit == false && l3_hit == false) {
 				
-				// Miss in L2 & L3 Cache both.
-				int way = random_num(); // Using Random Cache replacement policy.		
-				
-				L2->cache_matrix[l2_set_index][way] = l2_tag_bits;
-				L3->cache_matrix[l3_set_index][way] = l3_tag_bits;
-
-				std::cout << "L3 Cache_miss. Filled L2 & L3." << std::endl;		
+				// Need to write logic here.	
 			}
-		}		
+		}
+		std::cout << std::endl;		
 	}
 }
 
