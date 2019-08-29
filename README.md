@@ -24,7 +24,7 @@ time ./trace_reader.out gcc.log_l1misstrace config.txt 2
 
 ### Disclaimer
 
-Please don't share it. Ask me before-hand. Ignore the html and ./assets folder. 
+Ignore the html and ./assets folder. 
 It is not a part of the project.
 
 Thanks.
