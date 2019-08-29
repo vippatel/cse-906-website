@@ -1,0 +1,11 @@
+Please assume that all cache blocks remain clean throughout the simulation
+because we are not distinguishing between read and write accesses. As a
+result, when a block is evicted from the L2 cache in the inclusive and
+NINE cases, it does not go back to the L3 cache. For the exclusive case,
+all blocks evicted from the L2 cache must be sent to the L3 cache for
+allocation because this is the only time a block enters the L3 cache. You
+can treat this allocation in the L3 cache as an access to the L3 cache and
+accordingly update the LRU states of the blocks in the target L3 cache
+set. This is largely wrong and designing replacement policies for
+exclusive caches is quite involved. If you are interested in reading on
+this, let me know and I will give you some pointers to follow.
