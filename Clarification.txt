@@ -9,3 +9,29 @@ accordingly update the LRU states of the blocks in the target L3 cache
 set. This is largely wrong and designing replacement policies for
 exclusive caches is quite involved. If you are interested in reading on
 this, let me know and I will give you some pointers to follow.
+
+Dear all,
+ 
+There seems to be some confusion regarding what needs to be done for
+problem2. I will state it again.
+ 
+1. Problem2 is about classifying L3 cache misses. In all measurements, the
+L2 cache remains unchanged i.e., set-associative LRU. There is no reason
+to change the L2 cache when measuring the L3 cache misses.
+ 
+2. For measuring the number of L3 cache conflict misses, you will
+experiment with two definitions of zero conflict misses. These are as
+follows.
+ 
+A. The number of L3 cache conflict misses is zero when the L3 cache is
+fully-associative exercising LRU replacement policy.
+ 
+B. The number of L3 cache conflict misses is zero when the L3 cache is
+fully-associative exercising Belady's MIN replacement algorithm.
+ 
+3. With these two definitions of zero conflict misses, you will generate
+two sets of classification of misses for each application.
+ 
+--
+Best regards
+Mainak
