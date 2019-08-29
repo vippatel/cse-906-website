@@ -21,7 +21,17 @@ time ./trace_reader.out gcc.log_l1misstrace config.txt 2
 
 ```Please check Assignment.txt and Clarification.txt.```
 
+### Working : 
 
+
+Please fill up code as per case here. 
+
+```cpp
+if(l2_hit == false && l3_hit == false) {
+	 	// Need to write logic here.
+}
+ ```
+ 
 ### Disclaimer
 
 Ignore the html and ./assets folder. 
