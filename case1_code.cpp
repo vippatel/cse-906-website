@@ -2,9 +2,8 @@
 using namespace std;
 
 struct tag {
-	unsigned long long int tag_value;
-	bool valid, dirty, last_access;
-	int counter; 
+	unsigned long long int tag_value, counter;
+	bool valid, dirty, last_access; 
 };
 
 struct cache {
@@ -66,6 +65,11 @@ void initialize_cache (cache *L2, cache *L3, char *name) {
 
 	for(auto ways = 0; ways < L2->cache_assoc; ways++) {
 		tag t;
+		t.tag_value = -999;
+		t.counter = -1;
+		t.valid = false;
+		t.dirty = false;
+		t.last_access = false;
 		temp0.emplace_back(t);	
 	}
 
@@ -88,6 +92,11 @@ void initialize_cache (cache *L2, cache *L3, char *name) {
 
 	for(auto ways = 0; ways < L3->cache_assoc; ways++) {
 		tag t;
+		t.tag_value = -999;
+		t.counter = -1;
+		t.valid = false;
+		t.dirty = false;
+		t.last_access = false;
 		temp1.emplace_back(t);
 	}
 
@@ -114,57 +123,119 @@ unsigned long long int get_set_index_bits(unsigned long long int x, int set_inde
 
 void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> miss_trace) {
 	
-	unsigned long long int l3_tag_bits = 0, l2_tag_bits = 0, l2_set_index = 0, l3_set_index = 0;
 	for(const auto& trace_item : miss_trace) {
+		
+		bool l2_hit = false, l3_hit = false; int hit_way = -1;	
+		unsigned long long int l3_tag_bits = 0, l2_tag_bits = 0, l2_set_index = 0, l3_set_index = 0;
+		std::vector<int> l2_valid_ways, l3_valid_ways;
+		
 		l2_tag_bits = trace_item >> (L2->set_index_size + L2->block_offset);
 		l2_set_index = get_set_index_bits(trace_item, L2->set_index_size, L2->block_offset);
 	
 		l3_tag_bits = trace_item >> (L3->set_index_size + L3->block_offset);
-		l3_set_index = get_set_index_bits(trace_item, L3->set_index_size, L3->block_offset);	
-
-		bool l2_hit = false, l3_hit = false;		
-		
-		std::cout << l2_tag_bits << ", " << l3_tag_bits << std::endl;
+		l3_set_index = get_set_index_bits(trace_item, L3->set_index_size, L3->block_offset);		
 		
 		for(auto ways = 0; ways < L2->cache_assoc; ways++) {
 			auto exist_tag = L2->cache_matrix[l2_set_index][ways].tag_value;
 			if(l2_tag_bits == exist_tag) {
 				l2_hit = true;
-				L2->cache_matrix[l2_set_index][ways].counter++;
-				L2->cache_matrix[l2_set_index][ways].last_access= true;				
-				// std::cout << "L2 Cache_hit." << std::endl;
+				hit_way = ways;
+				L2->cache_matrix[l2_set_index][ways].counter = 0;
+				L2->cache_matrix[l2_set_index][ways].last_access = true; 
+				
+				// L2 SET LRU Counter Updation on target SET. It will run only once, when a hit occurs.		
+				for(auto ways = 0; ways < L2->cache_assoc; ways++) {
+					if(ways != hit_way && L2->cache_matrix[l2_set_index][ways].tag_value != -999) 
+					L2->cache_matrix[l2_set_index][ways].counter++;
+				}
+				std::cout << "L2 HIT : " << l2_set_index << ", " << hit_way << ", " << l2_tag_bits << std::endl;
 				break;		
 			}	
 		} 
-		
+			
 		if(l2_hit == false) {
 			
-			// std::cout << "L2 Cache_miss." << std::endl;
- 			
+			std::cout << "L2 MISS : " << l2_set_index << ", " << hit_way << ", " << l2_tag_bits << std::endl;
+			
 			// Check in L3 Cache;
 			for(auto ways = 0; ways < L3->cache_assoc; ways++) {
 			auto exist_tag = L3->cache_matrix[l3_set_index][ways].tag_value;
 				if(l3_tag_bits == exist_tag) {
 					l3_hit = true;
+					hit_way = ways;
 					L3->cache_matrix[l3_set_index][ways].counter++;
-					L3->cache_matrix[l3_set_index][ways].last_access= true;					
-					// std::cout << "L3 Cache_hit." << std::endl;
+					L3->cache_matrix[l3_set_index][ways].last_access = true;                  					
+					
+					// L3 SET LRU Counter Updation on target SET. It will run only once, when a hit occurs.		
+					for(auto ways = 0; ways < L3->cache_assoc; ways++) {
+						if(ways != hit_way && L3->cache_matrix[l3_set_index][ways].tag_value != -999) 
+						L3->cache_matrix[l3_set_index][ways].counter++;
+					}
+					std::cout << "L3 HIT : " << l3_set_index << ", " << hit_way << ", " << l3_tag_bits << std::endl;
 					break;		
 				}	
 			}	
 			
 			if(l2_hit == false && l3_hit == false) {
 				
-			// Need to write logic here.	
+			std::cout << "L2 & L3 : " << l2_set_index << ", " << l3_set_index << std::endl;
+			
+			// L3 is inclusive of L2: An L3 miss fills into L3 and L2. 
+			// An L3 eviction invalidates the corresponding block in L2.
 
+			// Find a empty/invalid way to fill first. If no way such found, use LRU replace on L3 Set. 
+			// On finding a LRU candidate, replace the candidate and invalidate in L2 also. 
+			
+			// If an invalid way is found in L3, fill it and then find the corresponding way in L2 and repeat 
+			// the same at L2. Use the first invalid/empty way found in L2 and L3 both.
+			
+				for(auto ways = 0; ways < L3->cache_assoc; ways++) {
+					if(L3->cache_matrix[l3_set_index][ways].tag_value == -999) {
+						L3->cache_matrix[l3_set_index][ways].valid = true;
+						l3_valid_ways.push_back(ways);
+					} else 
+						L3->cache_matrix[l3_set_index][ways].valid = false;
+				}
+				
+				for(auto ways = 0; ways < L2->cache_assoc; ways++) {
+					if(L2->cache_matrix[l2_set_index][ways].tag_value == -999) {
+						L2->cache_matrix[l2_set_index][ways].valid = true;
+						l2_valid_ways.push_back(ways);
+					} else 
+						L2->cache_matrix[l2_set_index][ways].valid = false;
+				}
 
-
-
-
-
+				if(!l3_valid_ways.empty()) {
+					int free_way = l3_valid_ways.front();
+					// L3->cache_matrix[l3_set_index][free_way].tag_value = l3_tag_bits; // Fill L3 Set.
+					L3->cache_matrix[l3_set_index][free_way].counter = 0;
+					L3->cache_matrix[l3_set_index][free_way].valid = true;
+					L3->cache_matrix[l3_set_index][free_way].last_access = true;   // A write-access is a hit.
+					// TO-DO : Invalidate in L2.
+				} else {
+					// LRU Cache replacement @L3 Set. TO DO.
+				}
+				
+				if(!l2_valid_ways.empty()) {
+					int free_way = l2_valid_ways.front();
+					// L2->cache_matrix[l2_set_index][free_way].tag_value = l2_tag_bits; // Fill L2 Set.
+					L2->cache_matrix[l2_set_index][free_way].counter = 0;
+					L2->cache_matrix[l2_set_index][free_way].valid = true;
+					L2->cache_matrix[l2_set_index][free_way].last_access = true;   // A write-access is a hit.
+				} else {
+					// LRU Cache replacement @L2 Set. TO DO.
+				}
 			}
 		}
-		// std::cout << std::endl;		
+	}
+}
+
+void print_cache(cache *L2) {
+	for(auto set = 0; set < L2->cache_sets; set++) {
+		for(auto ways = 0; ways < L2->cache_assoc; ways++) {
+			std::cout << L2->cache_matrix[set][ways].tag_value << ", ";
+		}
+		std::cout << std::endl;
 	}
 }
 
@@ -198,8 +269,10 @@ int main (int argc, char* argv[], char* envp[]) {
 	cache *L3 = new cache();
 
 	initialize_cache(L2, L3, argv[2]);
-	
 	process_trace(L2, L3, miss_trace);
-
+	
+	// print_cache(L2);
+	// print_cache(L3);
+	
 	return 0;
 }
