@@ -196,8 +196,10 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 						L3->cache_matrix[l3_set_index][ways].counter++;
 					}
 					std::cout << "L3 HIT : " << l3_set_index << ", " << hit_way << ", " << l3_tag_bits << std::endl;
-					// TO-DO : LRU Replacement in L2 Cache.
-					break;		
+					
+					// TO-DO : LRU Replacement in L2 Cache. Hit in L3 but miss in L2, so replace block.
+					
+					 break;		
 				}	
 			}	
 			
@@ -265,7 +267,8 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 						}
 					}
 				}
-				
+								
+				// Now we are filling L2.
 				if(!l2_valid_ways.empty()) {
 				
 					int index = random_num(0, l2_valid_ways.size() - 1); // Choose a free way randomly.
@@ -299,28 +302,24 @@ void print_cache(cache *L2) {
 
 int main (int argc, char* argv[], char* envp[]) {
 
-	int iord = 0, type = 0;
+	unsigned int iord = 0, type = 0, pc = 0;
 	unsigned long long int addr = 0;
-	unsigned pc = 0;
-	char trace_name[30];
+	char trace_file_name[50];
 	std::vector<unsigned long long int> miss_trace;
 
-	FILE* trace_reader = fopen(argv[1], "rb");
-
 	long long int traces = std::atoi(argv[3]);
-	for (auto k = 0; k < traces; k++) {
-		sprintf(trace_name, "%s_%d", argv[1], k);
-		FILE* trace_reader = fopen(trace_name, "rb");
+	for (auto file_number = 0; file_number < traces; file_number++) {
+		sprintf(trace_file_name, "%s_%d", argv[1], file_number);
+		FILE* trace_reader = fopen(trace_file_name, "rb");
 		assert(trace_reader != NULL);
 		while (!feof(trace_reader)) {
 			fread(&iord, sizeof(int), 1, trace_reader);
     	   		fread(&type, sizeof(int), 1, trace_reader);
         		fread(&addr, sizeof(unsigned long long int), 1, trace_reader);
-        		fread(&pc, sizeof(unsigned), 1, trace_reader);
+        		fread(&pc, sizeof(unsigned int), 1, trace_reader);
         		if(type != 0) miss_trace.emplace_back(addr);
 		}
 		fclose(trace_reader);
-		printf("Done reading the binary file %s, %d\n", trace_name, k + 1);
 	}
 
 	cache *L2 = new cache();
