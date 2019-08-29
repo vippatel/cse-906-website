@@ -26,9 +26,11 @@ time ./trace_reader.out gcc.log_l1misstrace config.txt 2
 
 Please fill up code as per case here. 
 
+[Cache_miss + Replacement](https://github.com/codersguild/cse-906-website/blob/ec7c1ea7268475e0e3c020b7455ffb7f6d0a0f3d/code.cpp#L156)
+
 ```cpp
 if(l2_hit == false && l3_hit == false) {
-	 	// Need to write logic here.
+    // Need to write logic here.
 }
  ```
  
