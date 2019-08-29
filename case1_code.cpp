@@ -155,7 +155,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 			
 		if(l2_hit == false) {
 			
-			std::cout << "L2 MISS : " << l2_set_index << ", " << hit_way << ", " << l2_tag_bits << std::endl;
+			std::cout << "L2 MISS : " << l2_set_index << ", " << l2_tag_bits << std::endl;
 			
 			// Check in L3 Cache;
 			for(auto ways = 0; ways < L3->cache_assoc; ways++) {
@@ -178,7 +178,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 			
 			if(l2_hit == false && l3_hit == false) {
 				
-			std::cout << "L2 & L3 : " << l2_set_index << ", " << l3_set_index << std::endl;
+			std::cout << "L3 MISS: " << l3_set_index << ", " << l3_tag_bits << std::endl << std::endl;
 			
 			// L3 is inclusive of L2: An L3 miss fills into L3 and L2. 
 			// An L3 eviction invalidates the corresponding block in L2.
