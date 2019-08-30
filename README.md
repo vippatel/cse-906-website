@@ -38,7 +38,9 @@ if(l2_hit == false && l3_hit == false) {
  ```
  Case - 1 : [INFO] L2 Hits : 179342, L2 Miss : 6534297, L3 Hits : 181129, L3 Miss : 6353168
  Case - 2 : [INFO] L2 Hits : 1319934, L2 Miss : 5393705, L3 Hits : 50366, L3 Miss : 5343339
-  ```
+ ```
+ 
+ ```
  
  [LRU Victim] Cache miss in index : 0, 15
 L2 MISS -> SET : 251, TAG : 42
