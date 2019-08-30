@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define MIN_RANGE 0
+#define MAX_RANGE 18456932511
+
 struct tag {
 	unsigned long long int tag_value, counter; // LRU Counter.
 	bool valid, dirty, last_access; 
@@ -8,6 +11,7 @@ struct tag {
 
 struct cache {
 	unsigned long long int cache_size; // In Bytes.
+	std::string name;
 	int cache_assoc, cache_line_size, cache_lines, cache_sets, set_index_size, block_offset;
 	std::vector< std::vector <tag> > cache_matrix; // 2D Array of tags.
 	std::unordered_map<unsigned long long int, unsigned long long int> tag_addr_mapping; // Tag to PA-address mapping.
@@ -59,7 +63,7 @@ void initialize_cache (cache *L2, cache *L3, char *config_txt) {
 	L2->cache_size = cache_config[0][0] << 10;
 	L2->cache_assoc = cache_config[0][1];
 	L2->cache_line_size = cache_config[0][2];
-
+	L2->name = "L2 Cache";
 	L2->block_offset = (int)log2(L2->cache_line_size);
 	L2->cache_lines = L2->cache_size >> L2->block_offset;
 	L2->cache_sets = L2->cache_lines >> (int)log2(L2->cache_assoc);
@@ -85,7 +89,7 @@ void initialize_cache (cache *L2, cache *L3, char *config_txt) {
      L3->cache_size = cache_config[1][0] << 10;
      L3->cache_assoc = cache_config[1][1];
      L3->cache_line_size = cache_config[1][2];
-
+	L3->name = "L3 Cache";
 	L3->block_offset = (int)log2(L3->cache_line_size);
      L3->cache_lines = L3->cache_size >> L3->block_offset;
      L3->cache_sets = L3->cache_lines >> (int)log2(L3->cache_assoc);
@@ -112,7 +116,10 @@ void initialize_cache (cache *L2, cache *L3, char *config_txt) {
 }
 
 // Run LRU Algorithm on LRU Counters for a CACHE SET in below function. We add the tag in L3 Cache.
-unsigned long long int get_lru_cache_vic (cache *X, unsigned long long int index, unsigned long long int val, unsigned long long int trace) {
+unsigned long long int get_lru_cache_vic (cache *X, 
+								unsigned long long int index, 
+								unsigned long long int val // tag bits 
+								) {
 
 	int assoc = X->cache_assoc, min_counter = -1, pos = 0;
 	for(auto j = 0; j < assoc; j++) {
@@ -129,9 +136,51 @@ unsigned long long int get_lru_cache_vic (cache *X, unsigned long long int index
 	X->cache_matrix[index][pos].valid = true;
 	X->cache_matrix[index][pos].dirty = false;
 	X->cache_matrix[index][pos].last_access = true;
-	X->tag_addr_mapping[val] = trace;
-	std::cout << "[LRU Victim] Cache miss in index : " << index << ", " << pos <<  std::endl;
+	std::cout << "[LRU Victim] " << X->name << ". Cache miss in index : " << index << ", " << pos <<  std::endl;
 	return prev_tag_bits;
+}
+
+// Insert into Cache X, the tags which missed.
+std::pair <unsigned long long int, bool> insert_into_cache (cache *X, 
+					unsigned long long int index,
+					unsigned long long int tag_bits
+					) {
+
+	std::vector<int> list_free_ways;					
+	bool lru_flag = false;
+	unsigned long long int return_tag = -999;
+	
+	for(auto ways = 0; ways < X->cache_assoc; ways++) {
+		if(X->cache_matrix[index][ways].tag_value == -999) {
+			X->cache_matrix[index][ways].valid = false; // invalid.
+			list_free_ways.push_back(ways);
+		} else 
+			X->cache_matrix[index][ways].valid = true; // Valid tag exists.
+	}
+	
+	if(!list_free_ways.empty()) { 
+		
+		// We got a free way. So we insert here.
+		int index = random_num(0, list_free_ways.size() - 1); // Choose a free way randomly.
+		int free_way = list_free_ways[index];
+		X->cache_matrix[index][free_way].tag_value = tag_bits; // Fill the cache Set.
+		X->cache_matrix[index][free_way].counter = 1;
+		X->cache_matrix[index][free_way].valid = true;
+		X->cache_matrix[index][free_way].dirty = false;
+		X->cache_matrix[index][free_way].last_access = true; // A write-access is a hit.
+		lru_flag = false;
+		std::cout << "[Free Way] " << X->name << ", " << free_way << std::endl; 
+		return std::make_pair(false, 0);
+		
+	} else {
+		
+		// LRU Cache replacement [Cache Eviction] in Cache Index Set.
+		lru_flag = true;
+		return_tag = get_lru_cache_vic(X, index, tag_bits);
+		auto pair = std::make_pair(return_tag, lru_flag);
+		return pair;
+	}
+						
 }
 
 // Extract the set index from the 64 bit address given.
@@ -193,9 +242,9 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 					
 					std::cout << "L3 HIT : " << l3_set_index << ", " << hit_way << ", " << l3_tag_bits << std::endl;
 					
-					// TO-DO : LRU Replacement in L2 Cache. Hit in L3 but miss in L2, so replace block.
-					
-					 break;		
+					// Replace Cache-block [LRU] or insert in L2.
+					auto dump_pair = insert_into_cache(L2, l2_set_index, l2_tag_bits);
+					break;		
 				}	
 			}	
 			
@@ -212,40 +261,12 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 			// If an invalid way is found in L3, fill it and then find the corresponding way in L2 and repeat 
 			// the same at L2. 
 			
-				for(auto ways = 0; ways < L3->cache_assoc; ways++) {
-					if(L3->cache_matrix[l3_set_index][ways].tag_value == -999) {
-						L3->cache_matrix[l3_set_index][ways].valid = false; // invalid.
-						l3_valid_ways.push_back(ways);
-					} else 
-						L3->cache_matrix[l3_set_index][ways].valid = true; // Valid tag exists.
-				}
-				
-				for(auto ways = 0; ways < L2->cache_assoc; ways++) {
-					if(L2->cache_matrix[l2_set_index][ways].tag_value == -999) {
-						L2->cache_matrix[l2_set_index][ways].valid = false; // invalid.
-						l2_valid_ways.push_back(ways);
-					} else 
-						L2->cache_matrix[l2_set_index][ways].valid = true; // Valid tag exists.
-				}
-
-				// vector_print<int> (l2_valid_ways); // Print the free ways we got.
-				// vector_print<int> (l3_valid_ways); // Print the free ways we got.
-				
-				// Now block comming from memory. Fill L3 first and then L2.
-				if(!l3_valid_ways.empty()) {
-					
-					int index = random_num(0, l3_valid_ways.size() - 1); // Choose a free way randomly.
-					int free_way = l3_valid_ways[index];
-					L3->cache_matrix[l3_set_index][free_way].tag_value = l3_tag_bits; // Fill L3 Set.
-					L3->cache_matrix[l3_set_index][free_way].counter = 1;
-					L3->cache_matrix[l3_set_index][free_way].valid = true;
-					L3->cache_matrix[l3_set_index][free_way].dirty = false;
-					L3->cache_matrix[l3_set_index][free_way].last_access = true; // A write-access is a hit.
-				
-				} else {
-				
-					// LRU Cache replacement [Cache Eviction] @L3 Set. TO DO.
-					unsigned long long int l3_vic_tag_bits = get_lru_cache_vic(L3, l3_set_index, l3_tag_bits, trace_item);
+			std::pair <unsigned long long int, bool> ret_pair = insert_into_cache(L3, l3_set_index, l3_tag_bits);
+			unsigned long long l3_vic_tag_bits = ret_pair.first;
+			bool invalidate_l2 = ret_pair.second;
+			
+				// if invalidation in L2 needed. 
+				if(invalidate_l2) {
 					unsigned long long int addr = L3->tag_addr_mapping[l3_vic_tag_bits];
 					unsigned long long int addr_tag_bits = addr >> (L2->set_index_size + L2->block_offset);
 					unsigned long long int addr_set_index = get_set_index_bits(addr, L2->set_index_size, L2->block_offset);
@@ -259,30 +280,13 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 							L2->cache_matrix[l2_set_index][ways].valid = false;
 							L2->cache_matrix[l2_set_index][ways].dirty = false;
 							L2->cache_matrix[l2_set_index][ways].last_access = false;
-							L2->tag_addr_mapping[prev_tag_value] = -999999;
 						}
 					}
 				}
-								
-				// Now we are filling L2.
-				if(!l2_valid_ways.empty()) {
-				
-					int index = random_num(0, l2_valid_ways.size() - 1); // Choose a free way randomly.
-					int free_way = l2_valid_ways[index];
-					L2->cache_matrix[l2_set_index][free_way].tag_value = l2_tag_bits; // Fill L2 Set.
-					L2->cache_matrix[l2_set_index][free_way].counter = 1;
-					L2->cache_matrix[l2_set_index][free_way].valid = true;
-					L2->cache_matrix[l2_set_index][free_way].dirty = true;
-					L2->cache_matrix[l2_set_index][free_way].last_access = true; // A write-access is a hit.
-					L2->tag_addr_mapping[l2_tag_bits] = trace_item;
-				
-				} else {
-				
-					// LRU Cache replacement @L2 Set. Pick an L2 Cache Victim. TO DO. 
-					// What do we do to L3 in this case ?? 
-				
-				}
-			}
+						
+					// Now we are filling L2.
+					auto dump_pair = insert_into_cache(L2, l2_set_index, l2_tag_bits);
+			  	}
 		}
 	}
 }
