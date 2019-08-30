@@ -44,8 +44,12 @@ if(l2_hit == false && l3_hit == false) {
  ### Output : 
  
  ```
- Case - 1 : [INFO] L2 Hits : 179342, L2 Miss : 6534297, L3 Hits : 181129, L3 Miss : 6353168
- Case - 2 : [INFO] L2 Hits : 1319934, L2 Miss : 5393705, L3 Hits : 50366, L3 Miss : 5343339
+[INFO Case-1] L2 Hits : 2444175, L2 Miss : 4269464, L3 Hits : 362157, L3 Miss : 3907307 //bzip2
+[INFO Case-1] L2 Hits : 2358431, L2 Miss : 5221237, L3 Hits : 401556, L3 Miss : 4819681 //gcc
+
+[INFO Case-2] L2 Hits : 2469383, L2 Miss : 4244256, L3 Hits : 365203, L3 Miss : 3879053 //bzip2
+[INFO Case-2] L2 Hits : 2393011, L2 Miss : 5186657, L3 Hits : 551716, L3 Miss : 4634941 //gcc
+
  ```
  
  ```
