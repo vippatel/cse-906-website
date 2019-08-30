@@ -6,6 +6,7 @@ using namespace std;
 #define INVALID_TAG -99999999
 
 std::unordered_map <unsigned long long, unsigned long long> l2tag_l3tag_mapping;
+unsigned long long int block_level_lru_counter;
 
 struct tag {
 	unsigned long long int tag_value, counter; // LRU Counter.
@@ -80,7 +81,7 @@ void initialize_cache (cache *L2, cache *L3, char *config_txt) {
 	for(auto ways = 0; ways < L2->cache_assoc; ways++) {
 		tag t;
 		t.tag_value = INVALID_TAG;
-		t.counter = 0;
+		t.counter = INT_MIN;
 		t.valid = false;
 		t.dirty = false;
 		temp0.emplace_back(t);	
@@ -106,7 +107,7 @@ void initialize_cache (cache *L2, cache *L3, char *config_txt) {
 	for(auto ways = 0; ways < L3->cache_assoc; ways++) {
 		tag t;
 		t.tag_value = INVALID_TAG;
-		t.counter = 0;
+		t.counter = INT_MIN;
 		t.valid = false;
 		t.dirty = false;
 		temp1.emplace_back(t);
@@ -136,7 +137,7 @@ unsigned long long int get_lru_cache_vic (cache *X,
 	
 	unsigned long long int prev_tag_bits = X->cache_matrix[index][pos].tag_value;
 	X->cache_matrix[index][pos].tag_value = val;
-	X->cache_matrix[index][pos].counter = 1;
+	X->cache_matrix[index][pos].counter = ++block_level_lru_counter;
 	X->cache_matrix[index][pos].valid = true;
 	X->cache_matrix[index][pos].dirty = false;
 	return prev_tag_bits;
@@ -166,7 +167,7 @@ std::pair <unsigned long long int, bool> insert_into_cache (cache *X,
 		int index = random_num(0, list_free_ways.size() - 1); // Choose a free way randomly.
 		int free_way = list_free_ways[index];
 		X->cache_matrix[index][free_way].tag_value = tag_bits; // Fill the cache Set.
-		X->cache_matrix[index][free_way].counter = 1;
+		X->cache_matrix[index][free_way].counter = ++block_level_lru_counter;
 		X->cache_matrix[index][free_way].valid = true;
 		X->cache_matrix[index][free_way].dirty = false;
 		lru_flag = false;
@@ -223,7 +224,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 			if(l2_tag_bits == exist_tag) {
 				l2_hit = true;
 				hit_way = ways;
-				L2->cache_matrix[l2_set_index][ways].counter++;
+				L2->cache_matrix[l2_set_index][ways].counter = ++block_level_lru_counter;
 				L2->hits++;
 				std::cout << "L2 HIT : " << l2_set_index << ", " << hit_way << ", " << l2_tag_bits << std::endl;
 				break;		
@@ -240,7 +241,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 				if(l3_tag_bits == exist_tag) {
 					l3_hit = true;
 					hit_way = ways;
-					L3->cache_matrix[l3_set_index][ways].counter++;                  					
+					L3->cache_matrix[l3_set_index][ways].counter = ++block_level_lru_counter;                  					
 					L3->hits++;
 					std::cout << "L3 HIT : " << l3_set_index << ", " << hit_way << ", " << l3_tag_bits << std::endl;
 					
