@@ -21,6 +21,14 @@ time ./trace_reader.out gcc.log_l1misstrace config.txt 2
 
 ```Please check Assignment.txt and Clarification.txt.```
 
+```
+[1 for case]
+sudo ./trace_reader.out bzip2.log_l1misstrace config.txt 2 > outfile_bzip_1.txt
+sudo ./trace_reader.out gcc.log_l1misstrace config.txt 2 > outfile_gcc_1.txt
+tail -2 outfile_bzip_1.txt
+tail -2 outfile_gcc_1.txt
+```
+
 ### Working : 
 
 
