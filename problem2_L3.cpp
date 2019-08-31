@@ -205,6 +205,7 @@ unsigned long long int get_set_index_bits(unsigned long long int x, int set_inde
 
 void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> miss_trace) {
 	
+    std::set<unsigned long long int> first_miss_tags_list, l3_sets_access;
 	for(const auto& trace_item : miss_trace) {
 		
 		bool l2_hit = false, l3_hit = false; int hit_way = -1;	
@@ -216,6 +217,9 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 		
 		L3->tag_addr_mapping[l3_tag_bits] = trace_item;
 
+        first_miss_tags_list.insert(l3_tag_bits);
+        l3_sets_access.insert(l3_set_index);
+
         // We first check in L3 Cache now.
         for(auto ways = 0; ways < L3->cache_assoc; ways++) {
 			auto exist_tag = L3->cache_matrix[l3_set_index][ways].tag_value;
@@ -224,20 +228,23 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 				hit_way = ways;
 				L3->cache_matrix[l3_set_index][ways].counter = ++(L3->lru_set_counters[l3_set_index]);                  					
 				L3->hits++;
-				
-				
-				// Replace Cache-block [LRU] or insert in L2.
+								
 			   	break;
 			}	
 		}	
+
+        if(!l3_hit) {
+            auto pair = insert_into_cache(L3, l3_set_index, l3_tag_bits);
+        }
 	
 	}
+    std::cout << "Cold Misses : " << l3_sets_access.size() << std::endl;
 }
 
 void print_cache(cache *X) {
 	for(auto set = 0; set < X->cache_sets; set++) {
 		for(auto ways = 0; ways < X->cache_assoc; ways++) {
-			std::cout << X->cache_matrix[set][ways].counter << ", ";
+			std::cout << X->cache_matrix[set][ways].valid << ", ";
 		}
 		std::cout << std::endl;
 	}
@@ -268,16 +275,8 @@ int main (int argc, char* argv[], char* envp[]) {
 	cache *L3 = new cache();
 
 	initialize_cache(L2, L3, argv[2]);
-	process_trace(L2, L3, miss_trace);
+    process_trace(L2, L3, miss_trace);
 
-	for(auto i = 0; i < 10; i++) {
-		if(trace_file_name[i] == '.') break;
-		std::cout << trace_file_name[i];
-	}
-
-	std::cout << " [Case-3-Excl] L2 Hits : " << L2->hits << " L2 Miss : " << L2->miss  
-	 		<< " L3 Hits : " << L3->hits << " L3 Miss : " << L3->miss << std::endl;
-	
 	delete L2;
 	delete L3;
 
