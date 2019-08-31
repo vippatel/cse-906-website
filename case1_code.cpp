@@ -2,8 +2,8 @@
 using namespace std;
 
 #define MIN_RANGE 0
-#define MAX_RANGE 18456932511
-#define INVALID_TAG -99999999
+#define MAX_RANGE ULLONG_MAX
+#define INVALID_TAG LLONG_MIN
 
 std::unordered_map <unsigned long long, unsigned long long> l2tag_l3tag_mapping;
 
@@ -80,7 +80,7 @@ void initialize_cache (cache *L2, cache *L3, char *config_txt) {
 	for(auto ways = 0; ways < L2->cache_assoc; ways++) {
 		tag t;
 		t.tag_value = INVALID_TAG;
-		t.counter = INT_MAX;
+		t.counter = ULLONG_MAX;
 		t.valid = false;
 		t.dirty = false;
 		temp0.emplace_back(t);	
@@ -107,7 +107,7 @@ void initialize_cache (cache *L2, cache *L3, char *config_txt) {
 	for(auto ways = 0; ways < L3->cache_assoc; ways++) {
 		tag t;
 		t.tag_value = INVALID_TAG;
-		t.counter = INT_MAX;
+		t.counter = ULLONG_MAX;
 		t.valid = false;
 		t.dirty = false;
 		temp1.emplace_back(t);
@@ -138,11 +138,10 @@ unsigned long long int get_lru_cache_vic (cache *X,
 	
 	unsigned long long int prev_tag_bits = X->cache_matrix[index][pos].tag_value;
 	X->cache_matrix[index][pos].tag_value = val;
-	X->lru_set_counters[index] = X->lru_set_counters[index] + 1;
-	X->cache_matrix[index][pos].counter = (X->lru_set_counters[index]);
+	X->cache_matrix[index][pos].counter = ++(X->lru_set_counters[index]);
 	X->cache_matrix[index][pos].valid = true;
 	X->cache_matrix[index][pos].dirty = false;
-	std::cout << "[LRU Victim] : " << X->name << ", " << index << ", pos : " << pos << std::endl;
+	// std::cout << "[LRU Victim] : " << X->name << ", " << index << ", pos : " << pos << std::endl;
 	return prev_tag_bits;
 }
 
@@ -167,15 +166,13 @@ std::pair <unsigned long long int, bool> insert_into_cache (cache *X,
 	if(!list_free_ways.empty()) { 
 		
 		// We got a free way. So we insert here.
-		int index = random_num(0, list_free_ways.size() - 1); // Choose a free way randomly.
-		int free_way = list_free_ways[index];
+		int free_way = list_free_ways[0];
 		X->cache_matrix[index][free_way].tag_value = tag_bits; // Fill the cache Set.
-		X->lru_set_counters[index] = X->lru_set_counters[index] + 1;
-		X->cache_matrix[index][free_way].counter = (X->lru_set_counters[index]);
+		X->cache_matrix[index][free_way].counter = ++(X->lru_set_counters[index]);
 		X->cache_matrix[index][free_way].valid = true;
 		X->cache_matrix[index][free_way].dirty = false;
 		lru_flag = false;
-		std::cout << "[Free Way] " << X->name << ", " << free_way << std::endl; 
+		// std::cout << "[Free Way] " << X->name << ", " << free_way << std::endl; 
 		return std::make_pair(false, 0);
 		
 	} else {
@@ -184,7 +181,7 @@ std::pair <unsigned long long int, bool> insert_into_cache (cache *X,
 		lru_flag = true;
 		return_tag = get_lru_cache_vic(X, index, tag_bits);
 		auto pair = std::make_pair(return_tag, lru_flag);
-		std::cout << "[LRU Eviction Case] : " << X->name << ", " << index << "." << std::endl;
+		// std::cout << "[LRU Eviction Case] : " << X->name << ", " << index << "." << std::endl;
 		return pair;
 	}
 						
@@ -231,14 +228,14 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 				hit_way = ways;
 				L2->cache_matrix[l2_set_index][ways].counter = ++(L2->lru_set_counters[l2_set_index]);
 				L2->hits++;
-				std::cout << "L2 HIT : " << l2_set_index << ", " << hit_way << ", " << l2_tag_bits << std::endl;
+				// std::cout << "L2 HIT : " << l2_set_index << ", " << hit_way << ", " << l2_tag_bits << std::endl;
 				break;		
 			}	
 		} 
 			
 		if(l2_hit == false) {
 			
-			std::cout << "L2 MISS -> SET : " << l2_set_index << ", TAG : " << l2_tag_bits << std::endl;
+			// std::cout << "L2 MISS -> SET : " << l2_set_index << ", TAG : " << l2_tag_bits << std::endl;
 			L2->miss++;
 			// Check in L3 Cache;
 			for(auto ways = 0; ways < L3->cache_assoc; ways++) {
@@ -246,10 +243,9 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 				if(l3_tag_bits == exist_tag) {
 					l3_hit = true;
 					hit_way = ways;
-					L3->lru_set_counters[l3_set_index] = L3->lru_set_counters[l3_set_index] + 1;
-					L3->cache_matrix[l3_set_index][ways].counter = (L3->lru_set_counters[l3_set_index]);                  					
+					L3->cache_matrix[l3_set_index][ways].counter = ++(L3->lru_set_counters[l3_set_index]);                  					
 					L3->hits++;
-					std::cout << "L3 HIT : " << l3_set_index << ", " << hit_way << ", " << l3_tag_bits << std::endl;
+					// std::cout << "L3 HIT : " << l3_set_index << ", " << hit_way << ", " << l3_tag_bits << std::endl;
 					
 					// Replace Cache-block [LRU] or insert in L2.
 					auto dump_pair = insert_into_cache(L2, l2_set_index, l2_tag_bits);
@@ -259,7 +255,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 			
 			if(l2_hit == false && l3_hit == false) {
 				
-			std::cout << "L3 MISS -> SET : " << l3_set_index << ", TAG : " << l3_tag_bits << std::endl;
+			// std::cout << "L3 MISS -> SET : " << l3_set_index << ", TAG : " << l3_tag_bits << std::endl;
 			L3->miss++;
 			
 			// L3 is inclusive of L2: An L3 miss fills into L3 and L2. 
@@ -282,11 +278,12 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 					// Invalidate in L2 Cache, using victim from L3. (Make Empty, Clear tag_bits).
 					for(auto ways = 0; ways < L2->cache_assoc; ways++) {
 						if(L2->cache_matrix[l2_addr_set_index][ways].tag_value == l2_addr_tag_bits) {
+							// std::cout << "Invalidate L2" << std::endl;
 							L2->cache_matrix[l2_addr_set_index][ways].tag_value = INVALID_TAG;
-							L2->cache_matrix[l2_addr_set_index][ways].counter = INT_MAX;
+							L2->cache_matrix[l2_addr_set_index][ways].counter = ULLONG_MAX;
 							L2->cache_matrix[l2_addr_set_index][ways].valid = false;
 							L2->cache_matrix[l2_addr_set_index][ways].dirty = false;
-							L2->lru_set_counters[l2_addr_set_index]++;
+							// L2->lru_set_counters[l2_addr_set_index]++; // Is it a hit??
 							break;
 						}
 					}
@@ -336,11 +333,16 @@ int main (int argc, char* argv[], char* envp[]) {
 	initialize_cache(L2, L3, argv[2]);
 	process_trace(L2, L3, miss_trace);
 
-	for(auto i = 0; i < 5; i++) std::cout << trace_file_name[i];
+	for(auto i = 0; i < 10; i++) {
+		if(trace_file_name[i] == '.') break;
+		std::cout << trace_file_name[i];
+	}
 
-	std::cout << " [Case-1 Incl] L2 Hits : " << L2->hits << ", L2 Miss : " << L2->miss  
-			<< ", L3 Hits : " << L3->hits << ", L3 Miss : " << L3->miss << std::endl;
+	std::cout << " [Case-1-Incl] L2 Hits : " << L2->hits << " L2 Miss : " << L2->miss  
+			<< " L3 Hits : " << L3->hits << " L3 Miss : " << L3->miss << std::endl;
 
-	vector_print(L2->lru_set_counters);
+	delete L2;
+	delete L3;
+
 	return 0;
 }
