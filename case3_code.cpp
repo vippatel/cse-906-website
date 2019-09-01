@@ -205,10 +205,11 @@ unsigned long long int get_set_index_bits(unsigned long long int x, int set_inde
 
 void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> miss_trace) {
 	
+	std::set<unsigned long long int> first_miss_tags_list, l3_sets_access, l2_sets_access;
 	for(const auto& trace_item : miss_trace) {
 		
 		bool l2_hit = false, l3_hit = false; int hit_way = -1;	
-		unsigned long long int l3_tag_bits = 0, l2_tag_bits = 0, l2_set_index = 0, l3_set_index = 0;
+		unsigned long long int l3_tag_bits = -1, l2_tag_bits = -1, l2_set_index = -1, l3_set_index = -1;
 		std::vector<int> l2_valid_ways, l3_valid_ways;
 		
 		l2_tag_bits = trace_item >> (L2->set_index_size + L2->block_offset);
@@ -220,8 +221,12 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 		L3->tag_addr_mapping[l3_tag_bits] = trace_item;
 		L2->tag_addr_mapping[l2_tag_bits] = trace_item;
 		
-		// Helps in invalidating L3. // Reverse of Case-1.
+		 // Reverse of Case-1.
 		l2tag_l3tag_mapping[l2_tag_bits] = l3_tag_bits;
+
+		first_miss_tags_list.insert(l3_tag_bits);
+        l3_sets_access.insert(l3_set_index);
+		l2_sets_access.insert(l2_set_index);
 		
 		for(auto ways = 0; ways < L2->cache_assoc; ways++) {
 			auto exist_tag = L2->cache_matrix[l2_set_index][ways].tag_value;
@@ -261,7 +266,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 			
 					
 					if(is_evicted_l2) {
-						unsigned long long int vic_addr = L3->tag_addr_mapping[l2_vic_tag_bits];
+						unsigned long long int vic_addr = L2->tag_addr_mapping[l2_vic_tag_bits];
 						unsigned long long int l3_addr_tag_bits = l2tag_l3tag_mapping[l2_vic_tag_bits];
 						unsigned long long int l3_addr_set_index = get_set_index_bits(vic_addr, L3->set_index_size, L3->block_offset);
 						
@@ -282,7 +287,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 				bool is_evicted_l2 = ret_pair.second; // Invalidate or not.
 								 
 				if(is_evicted_l2) {
-					unsigned long long int vic_addr = L3->tag_addr_mapping[l2_vic_tag_bits];
+					unsigned long long int vic_addr = L2->tag_addr_mapping[l2_vic_tag_bits];
 					unsigned long long int l3_addr_tag_bits = l2tag_l3tag_mapping[l2_vic_tag_bits];
 					unsigned long long int l3_addr_set_index = get_set_index_bits(vic_addr, L3->set_index_size, L3->block_offset);
 					
@@ -330,7 +335,10 @@ int main (int argc, char* argv[], char* envp[]) {
 	process_trace(L2, L3, miss_trace);
 
 	for(auto i = 0; i < 10; i++) {
-		if(trace_file_name[i] == '.') break;
+		if(trace_file_name[i] == '.') {
+			for(auto j = 0; j < 8 - i; j++) std::cout << " ";
+			break;
+		}
 		std::cout << trace_file_name[i];
 	}
 
