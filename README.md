@@ -102,8 +102,18 @@ sphinx3  [Case-1-Incl] L2 Hits : 1803147 L2 Miss : 8398885 L3 Hits : 704992 L3 M
 sphinx3  [Case-2-NINE] L2 Hits : 1932197 L2 Miss : 8269835 L3 Hits : 549184 L3 Miss : 7720651
 sphinx3  [Case-3-Excl] L2 Hits : 1932197 L2 Miss : 8269835 L3 Hits : 297399 L3 Miss : 7972436
 ```
+### Capacity Misses : 
 
- 
+```
+L3 -> Inclusive LRU based cache with associativity = 16, sets = 2048.
+sphinx3  Cold Misses : 264409 Capacity Misses : 234 Conflict Misses : 7661125 Total Misses : 7693893
+bzip2    Cold Misses : 1988827 Capacity Misses : 44 Conflict Misses : 1412928 Total Misses : 1445696
+gcc      Cold Misses : 1353202 Capacity Misses : 41 Conflict Misses : 1332662 Total Misses : 1365430
+h264ref  Cold Misses : 145103 Capacity Misses : 10 Conflict Misses : 303489 Total Misses : 336257
+gromacs  Cold Misses : 194524 Capacity Misses : 5 Conflict Misses : 136688 Total Misses : 169456
+hmmer    Cold Misses : 101675 Capacity Misses : 11 Conflict Misses : 348835 Total Misses : 381603
+```
+
 ### Disclaimer
 
 Ignore the html and ./assets folder. 
