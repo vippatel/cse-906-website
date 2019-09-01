@@ -102,16 +102,21 @@ sphinx3  [Case-1-Incl] L2 Hits : 1803147 L2 Miss : 8398885 L3 Hits : 704992 L3 M
 sphinx3  [Case-2-NINE] L2 Hits : 1932197 L2 Miss : 8269835 L3 Hits : 549184 L3 Miss : 7720651
 sphinx3  [Case-3-Excl] L2 Hits : 1932197 L2 Miss : 8269835 L3 Hits : 297399 L3 Miss : 7972436
 ```
-### Capacity Misses : 
+### Full Assoc + LRU (L3 level Misses)
 
 ```
-L3 -> Inclusive LRU based cache with associativity = 16, sets = 2048.
-sphinx3  Cold Misses : 264409 Capacity Misses : 234 Conflict Misses : 7661125 Total Misses : 7693893
-bzip2    Cold Misses : 1988827 Capacity Misses : 44 Conflict Misses : 1412928 Total Misses : 1445696
-gcc      Cold Misses : 1353202 Capacity Misses : 41 Conflict Misses : 1332662 Total Misses : 1365430
-h264ref  Cold Misses : 145103 Capacity Misses : 10 Conflict Misses : 303489 Total Misses : 336257
-gromacs  Cold Misses : 194524 Capacity Misses : 5 Conflict Misses : 136688 Total Misses : 169456
-hmmer    Cold Misses : 101675 Capacity Misses : 11 Conflict Misses : 348835 Total Misses : 381603
+sphinx3  Cold Misses : 239377 Capacity Misses : 7621657 Total Misses : 7861034
+bzip2    Cold Misses : 961097 Capacity Misses : 400304 Total Misses : 1361401
+gcc      Cold Misses : 1000636 Capacity Misses : 369288 Total Misses : 1369924
+h264ref  Cold Misses : 82213 Capacity Misses : 253667 Total Misses : 335880
+gromacs  Cold Misses : 113538 Capacity Misses : 55830 Total Misses : 169368
+hmmer    Cold Misses : 77255 Capacity Misses : 299769 Total Misses : 377024
+```
+
+### Inclusive Case + LRU (L3 level Misses)
+
+```
+
 ```
 
 ### Disclaimer
