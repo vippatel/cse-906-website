@@ -4,7 +4,6 @@ using namespace std;
 #define MIN_RANGE 0
 #define MAX_RANGE ULLONG_MAX
 #define INVALID_TAG LLONG_MIN
-#define LIMIT 32768
 
 unsigned long long capacity_miss = 0, conflict_miss = 0;
 std::set<unsigned long long int> first_miss_addr_list, l3_sets_access, l2_sets_access;
@@ -16,7 +15,7 @@ struct tag {
 };
 
 struct cache {
-	unsigned long long int cache_size, hits, miss, limit; // In Bytes.
+	unsigned long long int cache_size, hits, miss; // In Bytes.
 	std::string name;
 	int cache_assoc, cache_line_size, cache_lines, cache_sets, set_index_size, block_offset;
 	std::vector< std::vector <tag> > cache_matrix; // 2D Array of tags.
@@ -78,7 +77,6 @@ void initialize_cache (cache *L2, cache *L3, char *config_txt) {
 	L2->set_index_size = (int)log2(L2->cache_sets);
 	L2->hits = 0;
 	L2->miss = 0;
-	L2->limit = 0;
 	std::vector<tag> temp0;
 
 	for(auto ways = 0; ways < L2->cache_assoc; ways++) {
@@ -106,7 +104,6 @@ void initialize_cache (cache *L2, cache *L3, char *config_txt) {
 	L3->set_index_size = (int)log2(L3->cache_sets);
 	L3->hits = 0;
 	L3->miss = 0;
-	L3->limit = 0;
 	std::vector<tag> temp1;
 
 	for(auto ways = 0; ways < L3->cache_assoc; ways++) {
@@ -159,12 +156,6 @@ std::pair <unsigned long long int, bool> insert_into_cache (cache *X,
 	std::vector<int> list_free_ways;					
 	bool lru_flag = false;
 	unsigned long long int return_tag = INVALID_TAG, addr = -1;
-	
-	X->limit++; // Checking limit. For capacity miss.
-	if(X->limit == LIMIT && X->name == "L3 Cache") {
-		++capacity_miss;
-		X->limit = 0;
-	}
 
 	for(auto ways = 0; ways < X->cache_assoc; ways++) {
 		if(X->cache_matrix[index][ways].tag_value == INVALID_TAG) {
@@ -187,8 +178,6 @@ std::pair <unsigned long long int, bool> insert_into_cache (cache *X,
 		return std::make_pair(false, 0);
 		
 	} else {
-		
-		if(X->name == "L3 Cache") ++conflict_miss; // LRU replacement in a set so conflict miss.
 
 		// LRU Cache replacement [Cache Eviction] in Cache Index Set.
 		lru_flag = true;
@@ -233,11 +222,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 		
 		// Helps in invalidating L2.
 		l2tag_l3tag_mapping[l3_tag_bits] = l2_tag_bits;
-		
-		first_miss_addr_list.insert(trace_item); // accessed an address for the first time is a cold miss.
-        l3_sets_access.insert(l3_set_index);
-		l2_sets_access.insert(l2_set_index);
-		
+	
 		for(auto ways = 0; ways < L2->cache_assoc; ways++) {
 			auto exist_tag = L2->cache_matrix[l2_set_index][ways].tag_value;
 			if(l2_tag_bits == exist_tag) {
@@ -252,6 +237,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 			
 		if(l2_hit == false) {
 			
+			first_miss_addr_list.insert(trace_item); // accessed an address for the first time is a cold miss.
 			// std::cout << "L2 MISS -> SET : " << l2_set_index << ", TAG : " << l2_tag_bits << std::endl;
 			L2->miss++;
 			// Check in L3 Cache;
@@ -358,9 +344,7 @@ int main (int argc, char* argv[], char* envp[]) {
 		std::cout << trace_file_name[i];
 	}
 
-	std::cout << " Cold Misses : " << first_miss_addr_list.size(); 
-	std::cout << " Capacity Misses : " << capacity_miss;
-	std::cout << " Conflict Misses : " << conflict_miss << " Total Misses : " << L3->miss << std::endl; 
+	std::cout << " Cold Misses : " << first_miss_addr_list.size() << " Total Misses : " << L3->miss << std::endl; 
 
 	delete L2;
 	delete L3;
