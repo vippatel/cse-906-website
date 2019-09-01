@@ -1,4 +1,4 @@
-##include <bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 #define MIN_RANGE 0
@@ -109,7 +109,7 @@ void initialize_cache (cache *L2, l3_cache *L3, char *config_txt) {
     L3->cache_line_size = cache_config[1][2];
 	L3->name = "L3 Cache";
 	L3->block_offset = (int)log2(L3->cache_line_size);
-    L3->cache_lines = L3->cache_size >> L3->cache_line_size;
+    L3->cache_lines = L3->cache_size >> (int)log2(L3->cache_line_size);
 	L3->hits = 0;
 	L3->miss = 0;
 	L3->limit = 0;
