@@ -1,0 +1,183 @@
+% --------------------------------------------------------------
+% This is all preamble stuff that you don't have to worry about.
+% Head down to where it says "Start here"
+% --------------------------------------------------------------
+ 
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb, graphicx}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{CS622A Computer Architecture : Cache Simulation}
+\author{Sumit Lahiri \& Radhit Dedania}
+\date{01.09.2019}
+\maketitle
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+\caption{Case - I : L3 \& L2 Cache misses \& hits}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Case - I} & \textbf{L2 HITS} & \textbf{L2 MISS} & \textbf{L3 HITS} & \textbf{L3 MISS} \\ \hline
+\textbf{sphinx3}  & 1803147          & 8398885          & 704992           & 7693893          \\ \hline
+\textbf{bzip2}    & 5217207          & 5440420          & 3994724          & 1445696          \\ \hline
+\textbf{gcc}      & 11506316         & 3104495          & 1739065          & 1365430          \\ \hline
+\textbf{h264ref}  & 1360757          & 987816           & 651559           & 336257           \\ \hline
+\textbf{gromacs}  & 3078775          & 352736           & 183280           & 169456           \\ \hline
+\textbf{hmmer}    & 1763486          & 1746279          & 1364676          & 381603           \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+\caption{Case - II : L3 \& L2 Cache misses \& hits}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Case - II} & \textbf{L2 HITS} & \textbf{L2 MISS} & \textbf{L3 HITS} & \textbf{L3 MISS} \\ \hline
+\textbf{sphinx3}   & 1932197          & 8269835          & 549184           & 7720651          \\ \hline
+\textbf{bzip2}     & 5260051          & 5397576          & 3951730          & 1445846          \\ \hline
+\textbf{gcc}       & 11581002         & 3029809          & 1663561          & 1366248          \\ \hline
+\textbf{h264ref}   & 1382949          & 965624           & 632041           & 333583           \\ \hline
+\textbf{gromacs}   & 3094787          & 336724           & 166265           & 170459           \\ \hline
+\textbf{hmmer}     & 1774443          & 1735322          & 1358978          & 376344           \\ \hline
+\end{tabular}%
+}
+\end{table}
+ 
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\caption{Case - III : L3 \& L2 Cache Misses \& Hits Data}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{Case - III} & \textbf{L2 HITS} & \textbf{L2 MISS} & \textbf{L3 HITS} & \textbf{L3 MISS} \\ \hline
+\textbf{sphinx3}    & 1932197          & 8269835          & 297399           & 7972436          \\ \hline
+\textbf{bzip2}      & 5260051          & 5397576          & 527144           & 4870432          \\ \hline
+\textbf{gcc}        & 11581002         & 3029809          & 274375           & 2755434          \\ \hline
+\textbf{h264ref}    & 1382949          & 965624           & 47709            & 917915           \\ \hline
+\textbf{gromacs}    & 3094787          & 336724           & 27698            & 309026           \\ \hline
+\textbf{hmmer}      & 1774443          & 1735322          & 24784            & 1710538          \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\caption{Comparision accross cases in All 6 L1 miss traces.}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{}                           &  L2 HITS   & L2 MISS & L3 HITS & L3 MISS \\ \hline
+\textbf{bzip2    {[}Case-1-Incl{]}} & 5217207    & 5440420 & 3994724 & 1445696 \\ \hline
+\textbf{bzip2    {[}Case-2-NINE{]}} & 5260051    & 5397576 & 3951730 & 1445846 \\ \hline
+\textbf{bzip2    {[}Case-3-Excl{]}} & 5260051    & 5397576 & 527144  & 4870432 \\ \hline
+\textbf{}                           &            &         &         &         \\ \hline
+\textbf{gcc      {[}Case-1-Incl{]}} & 11506316   & 3104495 & 1739065 & 1365430 \\ \hline
+\textbf{gcc      {[}Case-2-NINE{]}} & 11581002   & 3029809 & 1663561 & 1366248 \\ \hline
+\textbf{gcc      {[}Case-3-Excl{]}} & 11581002   & 3029809 & 274375  & 2755434 \\ \hline
+\textbf{}                           &            &         &         &         \\ \hline
+\textbf{h264ref  {[}Case-1-Incl{]}} & 1360757    & 987816  & 651559  & 336257  \\ \hline
+\textbf{h264ref  {[}Case-2-NINE{]}} & 1382949    & 965624  & 632041  & 333583  \\ \hline
+\textbf{h264ref  {[}Case-3-Excl{]}} & 1382949    & 965624  & 20698   & 944926  \\ \hline
+                                    &            &         &         &         \\ \hline
+\textbf{gromacs  {[}Case-1-Incl{]}} & 3078775    & 352736  & 183280  & 169456  \\ \hline
+\textbf{gromacs  {[}Case-2-NINE{]}} & 3094787    & 336724  & 166265  & 170459  \\ \hline
+\textbf{gromacs  {[}Case-3-Excl{]}} & 3094787    & 336724  & 27698   & 309026  \\ \hline
+\textbf{}                           &            &         &         &         \\ \hline
+\textbf{hmmer    {[}Case-1-Incl{]}} & 1763486    & 1746279 & 1364676 & 381603  \\ \hline
+\textbf{hmmer    {[}Case-2-NINE{]}} & 1774443    & 1735322 & 1358978 & 376344  \\ \hline
+\textbf{hmmer    {[}Case-3-Excl{]}} & 1774443    & 1735322 & 24784   & 1710538 \\ \hline
+\textbf{}                           &            &         &         &         \\ \hline
+\textbf{sphinx3  {[}Case-1-Incl{]}} & 1803147    & 8398885 & 704992  & 7693893 \\ \hline
+\textbf{sphinx3  {[}Case-2-NINE{]}} & 1932197    & 8269835 & 549184  & 7720651 \\ \hline
+\textbf{sphinx3  {[}Case-3-Excl{]}} & 1932197    & 8269835 & 297399  & 7972436 \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\caption{L3 Miss Classification (Fully Associative LRU L3 Cache)}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{1}{|l|}{\textbf{Fully Associative LRU L3 Cache}} & \multicolumn{1}{l|}{\textbf{Cold Miss}} & \multicolumn{1}{l|}{\textbf{Capacity Miss}} & \multicolumn{1}{l|}{\textbf{Total Miss}} \\ \hline
+\textbf{sphinx3}                                              & 239377                                  & 7621657                                     & 7861034                                  \\ \hline
+\textbf{bzip2}                                                & 961097                                  & 400304                                      & 1361401                                  \\ \hline
+\textbf{gcc}                                                  & 1000636                                 & 369288                                      & 1369924                                  \\ \hline
+\textbf{h264ref}                                              & 82213                                   & 253667                                      & 335880                                   \\ \hline
+\textbf{gromacs}                                              & 113538                                  & 55830                                       & 169368                                   \\ \hline
+\textbf{hmmer}                                                & 77255                                   & 299769                                      & 377024                                   \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+
+% Please add the following required packages to your document preamble:
+% \usepackage{graphicx}
+\begin{table}[]
+\centering
+\caption{L3 Miss Classification : Set Associative (Inclusive) L3 LRU Cache}
+\label{tab:my-table}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|c|l|l|}
+\hline
+\multicolumn{1}{|l|}{\textbf{Inclusive LRU L3 Cache}} & \textbf{Cold Misses} & \textbf{Total Misses} \\ \hline
+\textbf{sphinx3}                                      & 240460               & 7693893               \\ \hline
+\textbf{bzip2}                                        & 925612               & 1445696               \\ \hline
+\textbf{gcc}                                          & 1002764              & 1365430               \\ \hline
+\textbf{h264ref}                                      & 80861                & 336257                \\ \hline
+\textbf{gromacs}                                      & 113288               & 169456                \\ \hline
+\textbf{hmmer}                                        & 77250                & 381603                \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+% --------------------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}
