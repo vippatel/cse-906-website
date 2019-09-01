@@ -113,10 +113,15 @@ gromacs  Cold Misses : 113538 Capacity Misses : 55830 Total Misses : 169368
 hmmer    Cold Misses : 77255 Capacity Misses : 299769 Total Misses : 377024
 ```
 
-### Inclusive Case + LRU (L3 level Misses)
+### Inclusive L3 Case + LRU (L3 level Misses)
 
 ```
-
+sphinx3  Cold Misses : 240460 Total Misses : 7693893
+bzip2    Cold Misses : 925612 Total Misses : 1445696
+gcc      Cold Misses : 1002764 Total Misses : 1365430
+h264ref  Cold Misses : 80861 Total Misses : 336257
+gromacs  Cold Misses : 113288 Total Misses : 169456
+hmmer    Cold Misses : 77250 Total Misses : 381603
 ```
 
 ### Disclaimer
