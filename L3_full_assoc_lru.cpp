@@ -168,7 +168,7 @@ std::pair <unsigned long long int, bool> insert_into_cache (cache *X,
 		} else 
 			X->cache_matrix[index][ways].valid = true; // Valid tag exists.
 	}
-	
+
 	if(!list_free_ways.empty()) { 
 		
 		// We got a free way. So we insert here.
@@ -197,30 +197,19 @@ std::pair <unsigned long long int, bool> insert_into_l3_cache (l3_cache *X,
 					unsigned long long int tag_bits
 					) {
 
-	std::vector<int> list_free_ways ;					
+	std::vector<int> list_free_ways;					
 	bool lru_flag = false; int free_way = -1;
 	unsigned long long int return_tag = INVALID_TAG, addr = -1;
-	
-	X->limit++; // Checking limit. For capacity miss.
-	if(X->limit == X->cache_lines && X->name == "L3 Cache") {
-		++capacity_miss;
-		--(X->limit);
-	}
 
-    for(auto ways = 0; ways < X->cache_lines; ways++) {
-        if(X->cache_matrix[ways].tag_value == INVALID_TAG) {
-            free_way = ways; 
-            break;
-        }
-	}
+    X->limit++;
 
-    if(free_way != -1) {
+    if(X->limit < X->cache_lines) {
         
-		X->cache_matrix[free_way].tag_value = tag_bits; // Fill the cache Set.
-		X->cache_matrix[free_way].counter = ++(global_lru_counter);
-        X->lru_counters[free_way] = global_lru_counter;
-		X->cache_matrix[free_way].valid = true;
-		X->cache_matrix[free_way].dirty = false;
+		X->cache_matrix[X->limit].tag_value = tag_bits; // Fill the cache Set.
+		X->cache_matrix[X->limit].counter = ++(global_lru_counter);
+        X->lru_counters[X->limit] = global_lru_counter;
+		X->cache_matrix[X->limit].valid = true;
+		X->cache_matrix[X->limit].dirty = false;
 		lru_flag = false;
 		return std::make_pair(0, false);
 
@@ -344,7 +333,6 @@ void process_trace (cache *L2, l3_cache *L3, std::vector<unsigned long long int>
 				// Now we are filling L2.
 				auto dump_pair = insert_into_cache(L2, l2_set_index, l2_tag_bits);
 			}
-			// L2 Invalidation.
 		}
 	}
 }
@@ -395,7 +383,7 @@ int main (int argc, char* argv[], char* envp[]) {
 	}
  
 	std::cout << " Cold Misses : " << first_miss_addr_list.size(); 
-	std::cout << " Capacity Misses : " << capacity_miss;
+	std::cout << " Capacity Misses : " << L3->miss - first_miss_addr_list.size();
 	std::cout << " Total Misses : " << L3->miss << std::endl;  
 
 	delete L2;
@@ -403,4 +391,3 @@ int main (int argc, char* argv[], char* envp[]) {
 
 	return 0;
 }
-
