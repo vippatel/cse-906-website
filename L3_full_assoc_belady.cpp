@@ -37,7 +37,7 @@ struct l3_cache {
 };
 
 template <class T>
-void vector_print (std::vector<T> vec) {
+void vector_print (std::deque<T> vec) {
 	for(const auto& item : vec) {
 		std::cout << item << ", " << std::endl;
 	}
@@ -219,7 +219,7 @@ std::pair <unsigned long long int, bool> insert_into_l3_cache (l3_cache *X,
     } else {
 
         // Belady Algo.
-
+		lru_flag = true;
 		unsigned long long int index = 0, pos = 0;
 		for(auto lines = 0; lines < X->cache_lines; lines++) {
 			if(index < next_dup_trace[X->cache_matrix[lines].tag_value][0]) {
@@ -258,6 +258,7 @@ void find_next_duplicates(l3_cache *L3, std::vector<unsigned long long int> miss
 	for(const auto& trace_item : miss_trace) {
 		++counter;
 		auto l3_tag_bits = trace_item >> (L3->block_offset);
+		std::cout << l3_tag_bits << std::endl;
 		next_dup_trace[l3_tag_bits].push_back(counter); 
 	}
 }
@@ -316,7 +317,7 @@ void process_trace (cache *L2, l3_cache *L3, std::vector<unsigned long long int>
 			
 			if(l2_hit == false && l3_hit == false) {
 
-			first_miss_addr_list.insert(trace_item); // accessed an address for the first time is a cold miss.	
+			first_miss_addr_list.insert(l3_tag_bits);  // accessed an address for the first time is a cold miss.	
 			// std::cout << "L3 MISS -> SET : " << l3_set_index << ", TAG : " << l3_tag_bits << std::endl;
 			L3->miss++; // total misses.
 			
@@ -395,6 +396,7 @@ int main (int argc, char* argv[], char* envp[]) {
 
 	initialize_cache(L2, L3, argv[2]);
 	find_next_duplicates(L3, miss_trace);
+
 	process_trace(L2, L3, miss_trace);
 
 	for(auto i = 0; i < 10; i++) {
@@ -414,4 +416,3 @@ int main (int argc, char* argv[], char* envp[]) {
 
 	return 0;
 }
-
