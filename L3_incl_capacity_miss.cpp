@@ -168,7 +168,7 @@ std::pair <unsigned long long int, bool> insert_into_cache (cache *X,
 	if(!list_free_ways.empty()) { 
 		
 		// We got a free way. So we insert here.
-		int free_way = list_free_ways[0];
+		int free_way = list_free_ways[0]; // need to randomize it.
 		X->cache_matrix[index][free_way].tag_value = tag_bits; // Fill the cache Set.
 		X->cache_matrix[index][free_way].counter = ++(X->lru_set_counters[index]);
 		X->cache_matrix[index][free_way].valid = true;
