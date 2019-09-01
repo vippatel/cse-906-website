@@ -203,7 +203,6 @@ std::pair <unsigned long long int, bool> insert_into_l3_cache (l3_cache *X,
 	
 	X->limit++; // Checking limit. For capacity miss.
 	if(X->limit == X->cache_lines && X->name == "L3 Cache") {
-        std::cout << "Capacity Reached." << std::endl;
 		++capacity_miss;
 		--(X->limit);
 	}
@@ -228,7 +227,6 @@ std::pair <unsigned long long int, bool> insert_into_l3_cache (l3_cache *X,
     } else {
 
         lru_flag = true;
-        std::cout << "LRU" << std::endl;
         auto lru_victim = std::distance(X->lru_counters.begin(), std::min_element(X->lru_counters.begin(), X->lru_counters.end()));
         auto l3_vic_tag_bits = X->cache_matrix[lru_victim].tag_value;
         X->cache_matrix[lru_victim].tag_value = tag_bits;
@@ -405,3 +403,4 @@ int main (int argc, char* argv[], char* envp[]) {
 
 	return 0;
 }
+
