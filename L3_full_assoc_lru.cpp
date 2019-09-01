@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+##include <bits/stdc++.h>
 using namespace std;
 
 #define MIN_RANGE 0
@@ -197,41 +197,38 @@ std::pair <unsigned long long int, bool> insert_into_l3_cache (l3_cache *X,
 					unsigned long long int tag_bits
 					) {
 
-	std::vector<int> list_free_ways;					
-	bool lru_flag = false;
+	std::vector<int> list_free_ways ;					
+	bool lru_flag = false; int free_way = -1;
 	unsigned long long int return_tag = INVALID_TAG, addr = -1;
 	
 	X->limit++; // Checking limit. For capacity miss.
 	if(X->limit == X->cache_lines && X->name == "L3 Cache") {
-        std::cout << "Capacity Miss." << std::endl;
+        std::cout << "Capacity Reached." << std::endl;
 		++capacity_miss;
-		X->limit = 0;
+		--(X->limit);
 	}
 
     for(auto ways = 0; ways < X->cache_lines; ways++) {
         if(X->cache_matrix[ways].tag_value == INVALID_TAG) {
-            X->cache_matrix[ways].valid = false; // invalid.
-			list_free_ways.push_back(ways);
+            free_way = ways; 
+            break;
         }
 	}
 
-    if(!list_free_ways.empty()) {
+    if(free_way != -1) {
         
-        int free_way = list_free_ways[0];
-        std::cout << "Free Ways " << free_way << std::endl;
 		X->cache_matrix[free_way].tag_value = tag_bits; // Fill the cache Set.
 		X->cache_matrix[free_way].counter = ++(global_lru_counter);
         X->lru_counters[free_way] = global_lru_counter;
 		X->cache_matrix[free_way].valid = true;
 		X->cache_matrix[free_way].dirty = false;
 		lru_flag = false;
-		// std::cout << "[Free Way] " << X->name << ", " << free_way << std::endl; 
-		return std::make_pair(false, 0);
+		return std::make_pair(0, false);
 
     } else {
 
         lru_flag = true;
-        std::cout << "L3 LRU. " << std::endl;
+        std::cout << "LRU" << std::endl;
         auto lru_victim = std::distance(X->lru_counters.begin(), std::min_element(X->lru_counters.begin(), X->lru_counters.end()));
         auto l3_vic_tag_bits = X->cache_matrix[lru_victim].tag_value;
         X->cache_matrix[lru_victim].tag_value = tag_bits;
@@ -260,7 +257,6 @@ unsigned long long int get_set_index_bits(unsigned long long int x, int set_inde
 
 void process_trace (cache *L2, l3_cache *L3, std::vector<unsigned long long int> miss_trace) {
 	
-    int counter_op = 0;
 	for(const auto& trace_item : miss_trace) {
 		bool l2_hit = false, l3_hit = false; int hit_way = -1;	
 		unsigned long long int l3_tag_bits = 0, l2_tag_bits = 0, l2_set_index = 0;
@@ -277,7 +273,6 @@ void process_trace (cache *L2, l3_cache *L3, std::vector<unsigned long long int>
 		// Helps in invalidating L2.
 		l2tag_l3tag_mapping[l3_tag_bits] = l2_tag_bits;
 		
-		first_miss_addr_list.insert(trace_item); // accessed an address for the first time is a cold miss.
 		
 		for(auto ways = 0; ways < L2->cache_assoc; ways++) {
 			auto exist_tag = L2->cache_matrix[l2_set_index][ways].tag_value;
@@ -313,9 +308,10 @@ void process_trace (cache *L2, l3_cache *L3, std::vector<unsigned long long int>
 			}	
 			
 			if(l2_hit == false && l3_hit == false) {
-				
+
+			first_miss_addr_list.insert(trace_item); // accessed an address for the first time is a cold miss.	
 			// std::cout << "L3 MISS -> SET : " << l3_set_index << ", TAG : " << l3_tag_bits << std::endl;
-			L3->miss++;
+			L3->miss++; // total misses.
 			
 			// L3 is inclusive of L2: An L3 miss fills into L3 and L2. 
 			// An L3 eviction invalidates the corresponding block in L2.
@@ -386,7 +382,6 @@ int main (int argc, char* argv[], char* envp[]) {
 		fclose(trace_reader);
 	}
 
-    // while (!feof(trace_reader))
 	cache *L2 = new cache();
 	l3_cache *L3 = new l3_cache();
 
@@ -400,10 +395,10 @@ int main (int argc, char* argv[], char* envp[]) {
 		}
 		std::cout << trace_file_name[i];
 	}
-
+ 
 	std::cout << " Cold Misses : " << first_miss_addr_list.size(); 
 	std::cout << " Capacity Misses : " << capacity_miss;
-	std::cout << " Total Misses : " << L3->miss << std::endl; 
+	std::cout << " Total Misses : " << L3->miss << std::endl;  
 
 	delete L2;
 	delete L3;
