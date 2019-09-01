@@ -203,6 +203,7 @@ unsigned long long int get_set_index_bits(unsigned long long int x, int set_inde
 
 void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> miss_trace) {
 	
+	std::set<unsigned long long int> first_miss_tags_list, l3_sets_access, l2_sets_access;
 	for(const auto& trace_item : miss_trace) {
 		
 		bool l2_hit = false, l3_hit = false; int hit_way = -1;	
@@ -220,6 +221,10 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 		
 		// Helps in invalidating L2.
 		l2tag_l3tag_mapping[l3_tag_bits] = l2_tag_bits;
+		
+		first_miss_tags_list.insert(l3_tag_bits);
+        l3_sets_access.insert(l3_set_index);
+		l2_sets_access.insert(l2_set_index);
 		
 		for(auto ways = 0; ways < L2->cache_assoc; ways++) {
 			auto exist_tag = L2->cache_matrix[l2_set_index][ways].tag_value;
@@ -299,7 +304,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 void print_cache(cache *L2) {
 	for(auto set = 0; set < L2->cache_sets; set++) {
 		for(auto ways = 0; ways < L2->cache_assoc; ways++) {
-			std::cout << L2->cache_matrix[set][ways].counter << ", ";
+			std::cout << L2->cache_matrix[set][ways].valid << ", ";
 		}
 		std::cout << std::endl;
 	}
@@ -334,7 +339,10 @@ int main (int argc, char* argv[], char* envp[]) {
 	process_trace(L2, L3, miss_trace);
 
 	for(auto i = 0; i < 10; i++) {
-		if(trace_file_name[i] == '.') break;
+		if(trace_file_name[i] == '.') {
+			for(auto j = 0; j < 8 - i; j++) std::cout << " ";
+			break;
+		}
 		std::cout << trace_file_name[i];
 	}
 
@@ -346,3 +354,4 @@ int main (int argc, char* argv[], char* envp[]) {
 
 	return 0;
 }
+
