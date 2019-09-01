@@ -1,0 +1,34 @@
+--------
+Legends:
+--------
+L1M : L1 cache miss
+L2H : L2 cache hit
+L2M : L2 cache miss
+L3H : L3 cache hit
+L3M : L3 cache miss
+Cache Hierarchy(inclusive) : L1 -> L2 -> L3
+
+---------
+Policies:
+---------
+1. Insertion Policy: Which level of cache hierarchy does the new block get inserted into on a miss and it's effect on other levels of cache hierarchy?
+2. Replacement Policy: Which block should be replaced on a miss?
+3. Eviction Policy: How replacing a block on a miss affects other levels of cache hierarchy?
+
+----------------
+Implementations:
+----------------
+1. LRU set associative L3 + LRU full associative L3
+2. LRU set associative L3 + Belady's OPT full associative L3
+
+************************************************
+Analysis 1: Implementation 1 vs Implementation 2
+************************************************
+In case of both the implementations, cold misses will come out to be same as the corresponding replacement policies will not be able to handle the first time address misses. As for the set associative case, LRU is used for both implementations, the total number of misses will also come out to be same for both cases. The only change will be observed in the case of conflict and capacity misses. As capacity misses are calculated using full associative L3 cache which has different replacement policies for both the implementations, it will be very less for Belady's OPT as Belady's OPT policy sees the future address accesses before replacing a block, there will be no misses after the replacemnt of that particular block for (size-1) next accesses where (size) represents the no. of blocks in the full associative L3 cache. There will be a lot of misses in case of LRU policy as there would be a high probability to evict a block that will be used more recently in future in comparison to some blocks(which are not chosen for eviction) which are used farther in future. As conflict misses = total misses - cold misses - capacity misses, they will be higher for Belady's OPT implementation than for LRU implementation.
+
+
+*****
+NOTE:
+*****
+The sequence of blocks evicted from L3 changes so it is not the case that evicting a block from L3 in full assoc case is same as set assoc case. This difference will roll down to dfferent blocks getting invalidated in L2 caches respectively. Hence, cold misses are different for the same implementation.
+
