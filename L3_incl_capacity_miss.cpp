@@ -237,7 +237,6 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 			
 		if(l2_hit == false) {
 			
-			first_miss_addr_list.insert(trace_item); // accessed an address for the first time is a cold miss.
 			// std::cout << "L2 MISS -> SET : " << l2_set_index << ", TAG : " << l2_tag_bits << std::endl;
 			L2->miss++;
 			// Check in L3 Cache;
@@ -258,6 +257,7 @@ void process_trace (cache *L2, cache *L3, std::vector<unsigned long long int> mi
 			
 			if(l2_hit == false && l3_hit == false) {
 				
+			first_miss_addr_list.insert(trace_item); // accessed an address for the first time is a cold miss.
 			// std::cout << "L3 MISS -> SET : " << l3_set_index << ", TAG : " << l3_tag_bits << std::endl;
 			L3->miss++;
 			
