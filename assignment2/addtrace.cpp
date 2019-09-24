@@ -55,18 +55,7 @@ VOID writeprintip(VOID *ip, THREADID tid, VOID *addr, UINT32 size)
         }
     } 
 
-   else if((base + size) <= 64 && (size <= 8)) {
-        auto vec = partpartitioning(size);
-        int x = 8;
-        for(const auto item : vec) {
-            for(auto i = 0; i < item; i++) {
-                fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, x);
-                base += x;
-                curr_addr += x;
-            }
-            x = x >> 1;
-        }
-   } else {
+     else {
        auto vec = partpartitioning(size);
        int x = 8;
        for(const auto item : vec) {
@@ -119,18 +108,7 @@ VOID readprintip(VOID *ip, THREADID tid, VOID *addr, UINT32 size)
         }
     } 
 
-    else if((base + size) <= 64 && (size <= 8)) {
-        auto vec = partpartitioning(size);
-        int x = 8;
-        for(const auto item : vec) {
-            for(auto i = 0; i < item; i++) {
-                fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, x);
-                base += x;
-                curr_addr += x;
-            }
-            x = x >> 1;
-        }
-   } else {
+    else {
        auto vec = partpartitioning(size);
        int x = 8;
        for(const auto item : vec) {
@@ -221,7 +199,7 @@ INT32 Usage()
 
 int main(int argc, char * argv[])
 {
-    trace = fopen("addtrace.out", "w");
+    trace = fopen("addrtrace.txt", "w");
     
     PIN_InitLock(&pinLock);
 
