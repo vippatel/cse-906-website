@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "pin.H"
 
-FILE * trace;
+FILE *trace, *addrs;
 PIN_LOCK pinLock;
 long long int counter = 0;
 
@@ -36,6 +36,7 @@ VOID writeprintip(VOID *ip, THREADID tid, VOID *addr, UINT32 size)
         for(const auto item : vec) {
             for(auto i = 0; i < item; i++) {
                 fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                fprintf(addrs, "%d %llu %u\n", tid, curr_addr, x);
                 base += x;
                 curr_addr += x;
             }
@@ -48,6 +49,7 @@ VOID writeprintip(VOID *ip, THREADID tid, VOID *addr, UINT32 size)
         for(const auto item : vec) {
             for(auto i = 0; i < item; i++) {
                 fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                fprintf(addrs, "%d %llu %u\n", tid, curr_addr, x);
                 base += x;
                 curr_addr += x;
             }
@@ -61,6 +63,7 @@ VOID writeprintip(VOID *ip, THREADID tid, VOID *addr, UINT32 size)
        for(const auto item : vec) {
            for(auto i = 0; i < item; i++) {
                 fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                fprintf(addrs, "%d %llu %u\n", tid, curr_addr, x);
                 base += x;
                 curr_addr += x;
            }
@@ -89,6 +92,7 @@ VOID readprintip(VOID *ip, THREADID tid, VOID *addr, UINT32 size)
         for(const auto item : vec) {
             for(auto i = 0; i < item; i++) {
                 fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                fprintf(addrs, "%d %llu %u\n", tid, curr_addr, x);
                 base += x;
                 curr_addr += x;
             }
@@ -101,6 +105,7 @@ VOID readprintip(VOID *ip, THREADID tid, VOID *addr, UINT32 size)
         for(const auto item : vec) {
             for(auto i = 0; i < item; i++) {
                 fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                fprintf(addrs, "%d %llu %u\n", tid, curr_addr, x);
                 base += x;
                 curr_addr += x;
             }
@@ -114,6 +119,7 @@ VOID readprintip(VOID *ip, THREADID tid, VOID *addr, UINT32 size)
        for(const auto item : vec) {
            for(auto i = 0; i < item; i++) {
                 fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                fprintf(addrs, "%d %llu %u\n", tid, curr_addr, x);
                 base += x;
                 curr_addr += x;
            }
@@ -200,6 +206,7 @@ INT32 Usage()
 int main(int argc, char * argv[])
 {
     trace = fopen("addrtrace.txt", "w");
+    addrs = fopen("addrtrace_formatted.txt", "w");
     
     PIN_InitLock(&pinLock);
 
