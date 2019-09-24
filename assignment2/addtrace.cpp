@@ -206,7 +206,7 @@ INT32 Usage()
 int main(int argc, char * argv[])
 {
     trace = fopen("addrtrace.txt", "w");
-    addrs = fopen("addrtrace_formatted.txt", "w");
+    addrs = fopen("addrtrace_formatted.txt", "w"); // cleaner trace information.
     
     PIN_InitLock(&pinLock);
 
