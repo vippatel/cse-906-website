@@ -3,225 +3,144 @@
 
 FILE * trace;
 PIN_LOCK pinLock;
+long long int counter = 0;
+
+std::vector<int> partpartitioning(long long int x) {    
+    // Divide the given range into parts. size => 8, 4, 2, 1
+    std::vector<int> ret;
+    int eights = x >> 3;
+    int fours = (x % 8) >> 2;
+    int twos = (x % 4) >> 1;
+    int ones = (x % 2);
+    ret.push_back(eights);
+    ret.push_back(fours);
+    ret.push_back(twos);
+    ret.push_back(ones);
+    return ret;
+}
 
 // This function is called before every instruction is executed and prints the IP
-VOID readprintip(VOID *ip, THREADID tid, VOID *addr, UINT32 size)
+VOID writeprintip(VOID *ip, THREADID tid, VOID *addr, UINT32 size)
 { 
-   PIN_GetLock(&pinLock, tid + 1);
-   unsigned long long int base = *(unsigned long long int*)addr%64;
-   unsigned long long int curr_addr = *(unsigned long long int*)addr; // 64 bit address.
+    PIN_GetLock(&pinLock, tid + 1);
+    unsigned long long int base = (*(unsigned long long int*)addr)%64;
+    unsigned long long int curr_addr = *(unsigned long long int*)addr; // 64 bit address.
 
     if((base + size) > 64) {
        
        int buffer = 64 - base; // before 64 byte mark.
-       
        int overflow = base + size - 64; // after 64 byte mark.
        
-       while(buffer) {
-           if(buffer >= 8) {
-               fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, 8);
-               buffer -= 8;
-               base += 8;
-               curr_addr += 8;
-           }
-            else if(buffer >= 4) {
-               fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, 4);
-               buffer -= 4;
-               base += 4;
-               curr_addr += 4;
-           }
-            else if(buffer >= 2) {
-               fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, 2);
-               buffer -= 2;
-               base += 2;
-               curr_addr += 2;
-           }
-            else if(buffer >= 1) {
-               fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, 8);
-               buffer -= 1;
-               base += 1;
-               curr_addr += 1;
-           }
-           else {
+        auto vec = partpartitioning(buffer);
+        int x = 8;
+        for(const auto item : vec) {
+            for(auto i = 0; i < item; i++) {
+                fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                base += x;
+                curr_addr += x;
+            }
+            x = x >> 1;
+        }
 
-           }
-       }
-
+        vec = partpartitioning(overflow);
+        x = 8;
         base = 0;
-        while(overflow) {
-           if(overflow >= 8) {
-               fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, 8);
-               overflow -= 8;
-               base += 8;
-               curr_addr += 8;
-           }
-            else if(overflow >= 4) {
-               fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, 4);
-               overflow -= 4;
-               base += 4;
-               curr_addr += 4;
-           }
-            else if(overflow >= 2) {
-               fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, 2);
-               overflow -= 2;
-               base += 2;
-               curr_addr += 2;
-           }
-            else if(overflow >= 1) {
-               fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, 8);
-               overflow -= 1;
-               base += 1;
-               curr_addr += 1;
-           }
-           else {
-
-           }
-       }
+        for(const auto item : vec) {
+            for(auto i = 0; i < item; i++) {
+                fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                base += x;
+                curr_addr += x;
+            }
+            x = x >> 1;
+        }
     } 
 
-   if((base + size) <= 64 && (size <= 8)) {
-        fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, size);
+   else if((base + size) <= 64 && (size <= 8)) {
+        auto vec = partpartitioning(size);
+        int x = 8;
+        for(const auto item : vec) {
+            for(auto i = 0; i < item; i++) {
+                fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                base += x;
+                curr_addr += x;
+            }
+            x = x >> 1;
+        }
    } else {
-    
-    while((base + size) <= 64 && size >= 8) {
-       fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, 8);
-       base += 8;
-       size -= 8;
-       curr_addr += 8;
-   }
-   
-    while((base + size) <= 64 && size >= 4) {
-       fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, 4);
-       base += 4;
-       size -= 4;
-       curr_addr += 4;
-    }
-
-    while((base + size) <= 64 && size >= 2) {
-        fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, 2);
-       base += 2;
-       size -= 2;
-       curr_addr += 2;
-    }
-    
-    while((base + size) <= 64 && size >= 1) {
-       fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, 1);
-       base += 1;
-       size -= 1;
-       curr_addr += 1;
-    }
+       auto vec = partpartitioning(size);
+       int x = 8;
+       for(const auto item : vec) {
+           for(auto i = 0; i < item; i++) {
+                fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                base += x;
+                curr_addr += x;
+           }
+           x = x >> 1;
+       }
    }
 
    fflush(trace);
    PIN_ReleaseLock(&pinLock);
 }
 
-
-VOID writeprintip(VOID *ip, THREADID tid, VOID *addr, UINT32 size)
+// This function is called before every instruction is executed and prints the IP
+VOID readprintip(VOID *ip, THREADID tid, VOID *addr, UINT32 size)
 { 
-   PIN_GetLock(&pinLock, tid + 1);
-   unsigned long long int base = *(unsigned long long int*)addr%64;
-   unsigned long long int curr_addr = *(unsigned long long int*)addr;
+    PIN_GetLock(&pinLock, tid + 1);
+    unsigned long long int base = (*(unsigned long long int*)addr)%64;
+    unsigned long long int curr_addr = *(unsigned long long int*)addr; // 64 bit address.
 
     if((base + size) > 64) {
        
        int buffer = 64 - base; // before 64 byte mark.
-       
        int overflow = base + size - 64; // after 64 byte mark.
        
-       while(buffer) {
-           if(buffer >= 8) {
-               fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, 8);
-               buffer -= 8;
-               base += 8;
-               curr_addr += 8;
-           }
-            else if(buffer >= 4) {
-               fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, 4);
-               buffer -= 4;
-               base += 4;
-               curr_addr += 4;
-           }
-            else if(buffer >= 2) {
-               fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, 2);
-               buffer -= 2;
-               base += 2;
-               curr_addr += 2;
-           }
-            else if(buffer >= 1) {
-               fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, 8);
-               buffer -= 1;
-               base += 1;
-               curr_addr += 1;
-           }
-           else {
+        auto vec = partpartitioning(buffer);
+        int x = 8;
+        for(const auto item : vec) {
+            for(auto i = 0; i < item; i++) {
+                fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                base += x;
+                curr_addr += x;
+            }
+            x = x >> 1;
+        }
 
-           }
-       }
-
+        vec = partpartitioning(overflow);
+        x = 8;
         base = 0;
-        while(overflow) {
-           if(overflow >= 8) {
-               fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, 8);
-               overflow -= 8;
-               base += 8;
-               curr_addr += 8;
-           }
-            else if(overflow >= 4) {
-               fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, 4);
-               overflow -= 4;
-               base += 4;
-               curr_addr += 4;
-           }
-            else if(overflow >= 2) {
-               fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, 2);
-               overflow -= 2;
-               base += 2;
-               curr_addr += 2;
-           }
-            else if(overflow >= 1) {
-               fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, 8);
-               overflow -= 1;
-               base += 1;
-               curr_addr += 1;
-           }
-           else {
-
-           }
-       }
+        for(const auto item : vec) {
+            for(auto i = 0; i < item; i++) {
+                fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                base += x;
+                curr_addr += x;
+            }
+            x = x >> 1;
+        }
     } 
-    
-   if((base + size) <= 64 && (size <= 8)) {
-        fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, size);
-   } else {
-    
-    while((base + size) <= 64 && size >= 8) {
-       fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, 8);
-       base += 8;
-       size -= 8;
-       curr_addr += 8;
-   }
-   
-    while((base + size) <= 64 && size >= 4) {
-       fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, 4);
-       base += 4;
-       size -= 4;
-       curr_addr += 4;
-    }
 
-    while((base + size) <= 64 && size >= 2) {
-        fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, 2);
-       base += 2;
-       size -= 2;
-       curr_addr += 2;
-    }
-    
-    while((base + size) <= 64 && size >= 1) {
-       fprintf(trace, "%d %p W %llu %llu %u\n", tid, ip, curr_addr, base, 1);
-       base += 1;
-       size -= 1;
-       curr_addr += 1;
-    }
+    else if((base + size) <= 64 && (size <= 8)) {
+        auto vec = partpartitioning(size);
+        int x = 8;
+        for(const auto item : vec) {
+            for(auto i = 0; i < item; i++) {
+                fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                base += x;
+                curr_addr += x;
+            }
+            x = x >> 1;
+        }
+   } else {
+       auto vec = partpartitioning(size);
+       int x = 8;
+       for(const auto item : vec) {
+           for(auto i = 0; i < item; i++) {
+                fprintf(trace, "%d %p R %llu %llu %u\n", tid, ip, curr_addr, base, x);
+                base += x;
+                curr_addr += x;
+           }
+           x = x >> 1;
+       }
    }
 
    fflush(trace);
