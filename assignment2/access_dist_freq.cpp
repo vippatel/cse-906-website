@@ -3,6 +3,7 @@ using namespace std;
 
 std::unordered_map<unsigned long long int, std::vector<unsigned long long int> > total_addr_mapping; 
 std::map<unsigned long long int, std::vector<unsigned long long int> > freq_map;
+std::map<unsigned long long int, unsigned long long int> cfd_map;
 
 template <typename T>
 void print_vec (std::vector<T> vec) {
@@ -36,39 +37,16 @@ int main (int argc, char *argv[], char *envp[]) {
 		} 
 	}
 	
+	unsigned long long int cummulative_freq = 0;
 	for(const auto &freqs : freq_map) {
-		std::cout << freqs.first << " " << freqs.second.size() << std::endl;
+		// std::cout << freqs.first << " " << freqs.second.size() << std::endl;
+		cummulative_freq += freqs.second.size();
+		cfd_map[freqs.first] = cummulative_freq;
+	}
+
+	for(const auto &cfd_values : cfd_map) {
+		std::cout << cfd_values.first << " " << cfd_values.second << std::endl;
 	}
 
 	return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
