@@ -18,14 +18,16 @@ typedef struct {
 
 int main (int argc, char **argv)
 {
-   int i, j, k, m, L3setid, L2setid, INVsetid, maxindex, numtraces;
+   int i, j, k, m, L1setid, INVsetid, maxindex, numtraces, threadid;
+   unsigned int x;
    unsigned long long addr, miss=0, max, l1_miss=0, l1_hit=0;
-   char dest_file_name[256], input_name[256];
-   char type, iord;
-   FILE *fp;
-   cacheTag **cache2, **cache3;
+   char dest_file_name[256], dest_file_name_1[256], input_name[256];
+
+   FILE *fp1;
+   FILE *fp2;
+   cacheTag **cache;
    unsigned pc;
-   int l2way, l3way, updateway;
+   int l1way, updateway;
 
    sprintf(dest_file_name, "%s-miss-trace", argv[1]);
    fp1 = fopen(dest_file_name, "w");
@@ -57,8 +59,11 @@ int main (int argc, char **argv)
       assert(fp != NULL);
 
       while (!feof(fp)) {
-         fread(&threadid, sizeof(unsigned), 1, fp);
-         fread(&addr, sizeof(unsigned long long), 1, fp);
+         fread(&threadid, sizeof(int), 1, fp);
+         fread(&addr, sizeof(unsigned long long int), 1, fp);
+         fread(&x, sizeof(unsigned int), 1, fp);
+         
+
          L1setid = (addr >> LOG_L1_BLOCK_SIZE) & (L1_NUMSET - 1);
          
          // L1 cache lookup
@@ -100,8 +105,8 @@ int main (int argc, char **argv)
       fclose(fp);
       printf("Done reading file %d!\n", k);
    }
-   sprintf(dest_file_name, "%s-hits-misses", argv[1]);
-   fp2 = fopen(dest_file_name, "w");
+   sprintf(dest_file_name_1, "%s-hits-misses", argv[1]);
+   fp2 = fopen(dest_file_name_1, "w");
    assert(fp2 != NULL);
    fprintf(fp2, "L1 Hits: %llu, L1 Misses: %llu\n", l1_hit, l1_miss);
    fclose(fp2);
