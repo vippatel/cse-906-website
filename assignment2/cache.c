@@ -1,5 +1,3 @@
-/*********** Author: Mainak Chaudhuri **************/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
