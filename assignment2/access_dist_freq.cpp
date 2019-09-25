@@ -1,3 +1,4 @@
+ 
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -13,23 +14,31 @@ void print_vec (std::vector<T> vec) {
 }
 
 int main (int argc, char *argv[], char *envp[]) {
-	std::fstream fs("addr_trace.txt", std::fstream::in);
-	unsigned long long int block_addr = 0, counter = 0, addr_access = 0;
+
+	// input -> thread_id addr_trace 
 	
-	while(!fs.eof()) {
-		std::string str;
-		std::getline(fs, str);
-		addr_access = std::strtoll(str.c_str(), nullptr, 10);
+	std::fstream fs(argv[1], std::fstream::in);
+	unsigned long long int block_addr = 0, counter = 0, addr_access = 0;
+	int thread_id = 0;
+	std::string str, buffer;
+	
+	while(std::getline(fs, str)) {
+
+		std::stringstream ss(str);
+        
+		ss >> buffer;
+        thread_id = std::stoi(buffer.c_str(), nullptr, 10);
+		buffer = "";
+		ss >> buffer;
+		addr_access = std::strtoull(buffer.c_str(), nullptr, 10);
 		
-		// Block Offset.
+		// Block Offset. 6
 		block_addr = addr_access >> 6;
 		total_addr_mapping[block_addr].emplace_back(counter);
 		counter++;
 	}
 
 	for(const auto &vecs : total_addr_mapping) {
-		// std::cout << "\nBlock Id : " << vecs.first << std::endl;
-		// print_vec(vecs.second);
 		std::vector<unsigned long long int> trace_map = vecs.second;
 		for (auto i = 1; i < trace_map.size(); i++) {
 			unsigned long long int access_dist = trace_map[i] - trace_map[i - 1];
@@ -39,13 +48,12 @@ int main (int argc, char *argv[], char *envp[]) {
 	
 	unsigned long long int cummulative_freq = 0;
 	for(const auto &freqs : freq_map) {
-		// std::cout << freqs.first << " " << freqs.second.size() << std::endl;
 		cummulative_freq += freqs.second.size();
 		cfd_map[freqs.first] = cummulative_freq;
 	}
 
 	for(const auto &cfd_values : cfd_map) {
-		std::cout << cfd_values.first << " " << cfd_values.second << std::endl;
+		std::cout << "Access Distance : " << cfd_values.first << ",  Cummulative Freq : " << cfd_values.second << std::endl;
 	}
 
 	return 0;
