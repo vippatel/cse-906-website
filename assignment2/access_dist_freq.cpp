@@ -21,6 +21,7 @@ int main (int argc, char *argv[], char *envp[]) {
 	unsigned long long int block_addr = 0, counter = 0, addr_access = 0;
 	int thread_id = 0;
 	std::string str, buffer;
+	unsigned long long int N = 0;
 	
 	while(std::getline(fs, str)) {
 
@@ -40,10 +41,15 @@ int main (int argc, char *argv[], char *envp[]) {
 
 	for(const auto &vecs : total_addr_mapping) {
 		std::vector<unsigned long long int> trace_map = vecs.second;
+		
+		auto size = vecs.second.size() - 1; // Excluding first access. 
+		N += size; 
+
 		for (auto i = 1; i < trace_map.size(); i++) {
 			unsigned long long int access_dist = trace_map[i] - trace_map[i - 1];
 			freq_map[access_dist].emplace_back(vecs.first);
 		} 
+
 	}
 	
 	unsigned long long int cummulative_freq = 0;
@@ -53,7 +59,10 @@ int main (int argc, char *argv[], char *envp[]) {
 	}
 
 	for(const auto &cfd_values : cfd_map) {
-		std::cout << "Access Distance : " << cfd_values.first << ",  Cummulative Freq : " << cfd_values.second << std::endl;
+		float _N = N;
+		float x = cfd_values.second;
+		float F = x / _N;
+		std::cout << std::setprecision(10) << cfd_values.first << " " << cfd_values.second  << " " << F << std::endl;
 	}
 
 	return 0;
