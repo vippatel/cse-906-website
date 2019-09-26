@@ -1,0 +1,9 @@
+[Threads count : 0] Block counts : 0
+[Threads count : 1] Block counts : 276003
+[Threads count : 2] Block counts : 243730
+[Threads count : 3] Block counts : 38918
+[Threads count : 4] Block counts : 1
+[Threads count : 5] Block counts : 1
+[Threads count : 6] Block counts : 0
+[Threads count : 7] Block counts : 9
+[Threads count : 8] Block counts : 21
