@@ -1,0 +1,20 @@
+Thread begin 0
+Thread begin 1
+Thread begin 2
+Thread begin 3
+Thread begin 4
+Thread begin 5
+Thread begin 6
+Thread begin 7
+Thread 3 ended with code 0
+Thread 1 ended with code 0
+Thread 2 ended with code 0
+Thread 5 ended with code 0
+Thread 4 ended with code 0
+Thread 6 ended with code 0
+Thread 7 ended with code 0
+SUM: 549769969664
+Thread 0 ended with code 0
+
+Total Traces 155069021
+
