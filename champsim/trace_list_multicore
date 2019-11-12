@@ -1,0 +1,25 @@
+ 1 10 54 600.perlbench_s-1273B.champsimtrace.xz 631.deepsjeng_s-928B.champsimtrace.xz 620.omnetpp_s-141B.champsimtrace.xz 625.x264_s-18B.champsimtrace.xz 
+ 1 10 110 619.lbm_s-2676B.champsimtrace.xz 638.imagick_s-824B.champsimtrace.xz 625.x264_s-18B.champsimtrace.xz 654.roms_s-1070B.champsimtrace.xz 
+ 1 10 132 600.perlbench_s-1273B.champsimtrace.xz 603.bwaves_s-1080B.champsimtrace.xz 620.omnetpp_s-141B.champsimtrace.xz 641.leela_s-334B.champsimtrace.xz 
+ 1 10 104 620.omnetpp_s-141B.champsimtrace.xz 621.wrf_s-6673B.champsimtrace.xz 603.bwaves_s-1080B.champsimtrace.xz 644.nab_s-9322B.champsimtrace.xz 
+ 1 10 106 623.xalancbmk_s-202B.champsimtrace.xz 619.lbm_s-3766B.champsimtrace.xz 649.fotonik3d_s-8225B.champsimtrace.xz 603.bwaves_s-1080B.champsimtrace.xz 
+ 1 10 88 649.fotonik3d_s-8225B.champsimtrace.xz 638.imagick_s-824B.champsimtrace.xz 620.omnetpp_s-141B.champsimtrace.xz 
+ 1 10 57 603.bwaves_s-1080B.champsimtrace.xz 600.perlbench_s-1273B.champsimtrace.xz 607.cactuBSSN_s-2421B.champsimtrace.xz 654.roms_s-1070B.champsimtrace.xz 
+ 1 10 69 631.deepsjeng_s-928B.champsimtrace.xz 648.exchange2_s-1699B.champsimtrace.xz 603.bwaves_s-1080B.champsimtrace.xz 641.leela_s-334B.champsimtrace.xz 
+ 1 10 86 620.omnetpp_s-141B.champsimtrace.xz 623.xalancbmk_s-202B.champsimtrace.xz 603.bwaves_s-1080B.champsimtrace.xz 619.lbm_s-2676B.champsimtrace.xz 
+ 1 10 130 625.x264_s-18B.champsimtrace.xz 648.exchange2_s-1699B.champsimtrace.xz 620.omnetpp_s-874B.champsimtrace.xz 621.wrf_s-6673B.champsimtrace.xz 
+ 1 10 86 654.roms_s-1070B.champsimtrace.xz 625.x264_s-18B.champsimtrace.xz 620.omnetpp_s-141B.champsimtrace.xz 600.perlbench_s-1273B.champsimtrace.xz 
+ 1 10 147 648.exchange2_s-1699B.champsimtrace.xz 631.deepsjeng_s-928B.champsimtrace.xz 607.cactuBSSN_s-2421B.champsimtrace.xz 620.omnetpp_s-141B.champsimtrace.xz 
+ 1 10 53 648.exchange2_s-1699B.champsimtrace.xz 603.bwaves_s-1080B.champsimtrace.xz 607.cactuBSSN_s-2421B.champsimtrace.xz 649.fotonik3d_s-8225B.champsimtrace.xz 
+ 1 10 108 631.deepsjeng_s-928B.champsimtrace.xz 623.xalancbmk_s-202B.champsimtrace.xz 621.wrf_s-6673B.champsimtrace.xz 603.bwaves_s-1080B.champsimtrace.xz 
+ 1 10 62 602.gcc_s-1850B.champsimtrace.xz 603.bwaves_s-1080B.champsimtrace.xz 631.deepsjeng_s-928B.champsimtrace.xz 600.perlbench_s-1273B.champsimtrace.xz 
+ 1 10 54 625.x264_s-18B.champsimtrace.xz 631.deepsjeng_s-928B.champsimtrace.xz 648.exchange2_s-1699B.champsimtrace.xz 619.lbm_s-3766B.champsimtrace.xz 
+ 1 10 149 602.gcc_s-1850B.champsimtrace.xz 641.leela_s-334B.champsimtrace.xz 620.omnetpp_s-141B.champsimtrace.xz 605.mcf_s-472B.champsimtrace.xz 
+ 1 10 118 621.wrf_s-6673B.champsimtrace.xz 620.omnetpp_s-874B.champsimtrace.xz 654.roms_s-1070B.champsimtrace.xz 607.cactuBSSN_s-2421B.champsimtrace.xz 
+ 1 10 142 600.perlbench_s-1273B.champsimtrace.xz 619.lbm_s-2676B.champsimtrace.xz 602.gcc_s-1850B.champsimtrace.xz 607.cactuBSSN_s-2421B.champsimtrace.xz 
+ 1 10 140 649.fotonik3d_s-8225B.champsimtrace.xz 648.exchange2_s-1699B.champsimtrace.xz 620.omnetpp_s-141B.champsimtrace.xz 625.x264_s-18B.champsimtrace.xz 
+ 1 10 82 641.leela_s-334B.champsimtrace.xz 603.bwaves_s-1080B.champsimtrace.xz 648.exchange2_s-1699B.champsimtrace.xz 623.xalancbmk_s-202B.champsimtrace.xz 
+ 1 10 53 648.exchange2_s-1699B.champsimtrace.xz 620.omnetpp_s-141B.champsimtrace.xz 625.x264_s-18B.champsimtrace.xz 605.mcf_s-472B.champsimtrace.xz 
+ 1 10 135 623.xalancbmk_s-202B.champsimtrace.xz 625.x264_s-18B.champsimtrace.xz 600.perlbench_s-1273B.champsimtrace.xz 638.imagick_s-4128B.champsimtrace.xz 
+ 1 10 146 603.bwaves_s-1080B.champsimtrace.xz 619.lbm_s-2676B.champsimtrace.xz 607.cactuBSSN_s-2421B.champsimtrace.xz 620.omnetpp_s-141B.champsimtrace.xz 
+ 1 10 138 631.deepsjeng_s-928B.champsimtrace.xz 649.fotonik3d_s-8225B.champsimtrace.xz 621.wrf_s-6673B.champsimtrace.xz 641.leela_s-334B.champsimtrace.xz 

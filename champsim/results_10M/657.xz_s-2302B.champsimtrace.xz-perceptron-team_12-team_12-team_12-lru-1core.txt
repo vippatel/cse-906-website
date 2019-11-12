@@ -1,0 +1,96 @@
+Initialize SIGNATURE TABLE
+ST_SET: 1
+ST_WAY: 256
+ST_TAG_BIT: 16
+ST_TAG_MASK: ffff
+
+Initialize PATTERN TABLE
+PT_SET: 2048
+PT_WAY: 4
+SIG_DELTA_BIT: 7
+C_SIG_BIT: 4
+C_DELTA_BIT: 4
+
+Initialize PREFETCH FILTER
+FILTER_SET: 1024
+
+Initialize PERCEPTRON
+PERC_ENTRIES: 4096
+PERC_FEATURES: 9
+Initialize SIGNATURE TABLE
+ST_SET: 1
+ST_WAY: 256
+ST_TAG_BIT: 16
+ST_TAG_MASK: ffff
+
+Initialize PATTERN TABLE
+PT_SET: 2048
+PT_WAY: 4
+SIG_DELTA_BIT: 7
+C_SIG_BIT: 4
+C_DELTA_BIT: 4
+
+Initialize PREFETCH FILTER
+FILTER_SET: 1024
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 1000000
+Simulation Instructions: 10000000
+Number of CPUs: 1
+LLC sets: 2048
+LLC ways: 16
+Off-chip DRAM Size: 4096 MB Channels: 1 Width: 64-bit Data Rate: 3200 MT/s
+
+CPU 0 runs /home/virtualcse/Data-Prefetching/ChampSim/dpc3_traces/657.xz_s-2302B.champsimtrace.xz
+CPU 0 L1D next line prefetcher
+
+Warmup complete CPU 0 instructions: 1000003 cycles: 321689 (Simulation time: 0 hr 0 min 2 sec) 
+
+Heartbeat CPU 0 instructions: 10000001 cycles: 8835552 heartbeat IPC: 1.13179 cumulative IPC: 1.0571 (Simulation time: 0 hr 0 min 11 sec) 
+Finished CPU 0 instructions: 10000000 cycles: 9373570 cumulative IPC: 1.06683 (Simulation time: 0 hr 0 min 12 sec) 
+
+CPU 0 Branch Prediction Accuracy: 89.4991% MPKI: 13.4766 Average ROB Occupancy at Mispredict: 55.6732
+
+ChampSim completed all CPUs
+
+Region of Interest Statistics
+
+CPU 0 cumulative IPC: 1.06683 instructions: 10000000 cycles: 9373570
+L1D TOTAL     ACCESS:    2515753  HIT:    2437438  MISS:      78315
+L1D LOAD      ACCESS:    1386015  HIT:    1327257  MISS:      58758
+L1D RFO       ACCESS:     746197  HIT:     739178  MISS:       7019
+L1D PREFETCH  ACCESS:     383541  HIT:     371003  MISS:      12538
+L1D WRITEBACK ACCESS:          0  HIT:          0  MISS:          0
+L1D PREFETCH  REQUESTED:     584662  ISSUED:     456611  USEFUL:       3267  USELESS:      10782
+L1D AVERAGE MISS LATENCY: 78.6987 cycles
+L1I TOTAL     ACCESS:     546225  HIT:     546125  MISS:        100
+L1I LOAD      ACCESS:     546225  HIT:     546125  MISS:        100
+L1I RFO       ACCESS:          0  HIT:          0  MISS:          0
+L1I PREFETCH  ACCESS:          0  HIT:          0  MISS:          0
+L1I WRITEBACK ACCESS:          0  HIT:          0  MISS:          0
+L1I PREFETCH  REQUESTED:          0  ISSUED:          0  USEFUL:          0  USELESS:          0
+L1I AVERAGE MISS LATENCY: 110.06 cycles
+L2C TOTAL     ACCESS:     143081  HIT:      95708  MISS:      47373
+L2C LOAD      ACCESS:      58667  HIT:      28976  MISS:      29691
+L2C RFO       ACCESS:       7010  HIT:       4395  MISS:       2615
+L2C PREFETCH  ACCESS:      32910  HIT:      17923  MISS:      14987
+L2C WRITEBACK ACCESS:      44494  HIT:      44414  MISS:         80
+L2C PREFETCH  REQUESTED:      32717  ISSUED:      32717  USEFUL:       3023  USELESS:      12240
+L2C AVERAGE MISS LATENCY: 128.796 cycles
+LLC TOTAL     ACCESS:      96314  HIT:      57684  MISS:      38630
+LLC LOAD      ACCESS:      29668  HIT:      13762  MISS:      15906
+LLC RFO       ACCESS:       2616  HIT:        928  MISS:       1688
+LLC PREFETCH  ACCESS:      39770  HIT:      18864  MISS:      20906
+LLC WRITEBACK ACCESS:      24260  HIT:      24130  MISS:        130
+LLC PREFETCH  REQUESTED:      37588  ISSUED:      37036  USEFUL:       5193  USELESS:       7929
+LLC AVERAGE MISS LATENCY: 178.092 cycles
+Major fault: 0 Minor fault: 4359
+
+DRAM Statistics
+ CHANNEL 0
+ RQ ROW_BUFFER_HIT:       2016  ROW_BUFFER_MISS:      36484
+ DBUS_CONGESTED:       7483
+ WQ ROW_BUFFER_HIT:        607  ROW_BUFFER_MISS:       5647  FULL:          0
+
+ AVG_CONGESTED_CYCLE: 5

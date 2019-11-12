@@ -1,7 +1,8 @@
-perceptron-no-no-no-lru-1core
-perceptron-ipcp-ipcp-ipcp-lru-1core
-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core
-perceptron-pangloss-pangloss-no-lru-1core
-perceptron-team_12-team_12-team_12-lru-1core
-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core
-perceptron-bingo_dpc3-next_line-next_line-lru-1core
+perceptron-bingo_dpc3-next_line-next_line-lru-4core
+perceptron-ipcp-ipcp-ipcp-lru-4core
+perceptron-no-no-no-lru-4core
+perceptron-no-spp_dev-no-lru-4core
+perceptron-pangloss-pangloss-no-lru-4core
+perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-4core
+perceptron-team_12-team_12-team_12-lru-4core
+perceptron-T_SKID190509.021-spp.021-no.021-lru-4core

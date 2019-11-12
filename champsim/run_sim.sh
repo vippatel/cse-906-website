@@ -1,11 +1,14 @@
-trace_file="./trace_list_source_file"
+trace_file="./trace_list_multicore"
 processor_file="./processor_list_file"
 
 traces=`cat $trace_file`
 processors=`cat $processor_file`
 
-for processor in $processors; do
-	for trace in $traces; do
-		./run_champsim.sh $processor 1 10 $trace
+
+run=0
+for trace in $traces; do
+	for processor in $processors; do
+		((run++))
+		echo $trace
 	done
 done
