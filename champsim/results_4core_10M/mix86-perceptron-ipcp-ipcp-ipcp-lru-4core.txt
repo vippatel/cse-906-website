@@ -1,0 +1,21 @@
+
+*** ChampSim Multicore Out-of-Order Simulator ***
+
+Warmup Instructions: 1000000
+Simulation Instructions: 10000000
+Number of CPUs: 4
+LLC sets: 8192
+LLC ways: 16
+Off-chip DRAM Size: 4096 MB Channels: 1 Width: 64-bit Data Rate: 3200 MT/s
+
+CPU 0 runs /home/virtualcse/Data-Prefetching/ChampSim/dpc3_traces/654.roms_s-1070B.champsimtrace.xz
+CPU 1 runs /home/virtualcse/Data-Prefetching/ChampSim/dpc3_traces/625.x264_s-18B.champsimtrace.xz
+CPU 2 runs /home/virtualcse/Data-Prefetching/ChampSim/dpc3_traces/620.omnetpp_s-141B.champsimtrace.xz
+CPU 3 runs /home/virtualcse/Data-Prefetching/ChampSim/dpc3_traces/600.perlbench_s-1273B.champsimtrace.xz
+
+Warmup complete CPU 0 instructions: 1159897 cycles: 539062 (Simulation time: 0 hr 0 min 10 sec) 
+Warmup complete CPU 1 instructions: 1591458 cycles: 539062 (Simulation time: 0 hr 0 min 10 sec) 
+Warmup complete CPU 2 instructions: 1000001 cycles: 539062 (Simulation time: 0 hr 0 min 10 sec) 
+Warmup complete CPU 3 instructions: 1395694 cycles: 539061 (Simulation time: 0 hr 0 min 10 sec) 
+
+Heartbeat CPU 1 instructions: 10000000 cycles: 4510734 heartbeat IPC: 2.21693 cumulative IPC: 2.11713 (Simulation time: 0 hr 0 min 43 sec) 
