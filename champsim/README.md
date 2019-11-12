@@ -18,3 +18,5 @@ Samuel Pakalapati, Biswabandan Panda
 6. Pangloss: a novel Markov chain prefetcher.
 Philippos Papaphilippou, Paul H. J. Kelly, Wayne Luk
 https://dpc3.compas.cs.stonybrook.edu/?final_programs
+
+echo 'Running : ' $processor ' Running on Trace : ' $trace ' ,' $run;
