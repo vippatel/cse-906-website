@@ -1,0 +1,3561 @@
+1 ./600.perlbench_s-1273B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.73518
+1.6737
+1.68163
+98.1158
+2.3023
+120.995
+1.68163
+2 ./600.perlbench_s-1273B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.73855
+1.67719
+1.6848
+98.1158
+2.3023
+120.913
+1.6848
+3 ./600.perlbench_s-1273B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.72998
+1.66833
+1.67675
+98.1158
+2.3023
+121.133
+1.67675
+4 ./600.perlbench_s-1273B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.74206
+1.68081
+1.68809
+98.1158
+2.3023
+120.931
+1.68809
+5 ./600.perlbench_s-1273B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.73549
+1.67403
+1.68193
+98.1158
+2.3023
+120.903
+1.68193
+6 ./600.perlbench_s-1273B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.73819
+1.67681
+1.68446
+98.1158
+2.3023
+120.937
+1.68446
+7 ./600.perlbench_s-1273B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.73756
+1.67616
+1.68386
+98.1158
+2.3023
+120.843
+1.68386
+8 ./600.perlbench_s-210B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.53976
+1.47372
+1.47993
+97.9517
+2.9917
+68.6367
+1.47993
+9 ./600.perlbench_s-210B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.54227
+1.47627
+1.48225
+97.9517
+2.9917
+68.5534
+1.48225
+10 ./600.perlbench_s-210B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.53117
+1.46499
+1.472
+97.9517
+2.9917
+68.8376
+1.472
+11 ./600.perlbench_s-210B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.54985
+1.48399
+1.48924
+97.9517
+2.9917
+68.5709
+1.48924
+12 ./600.perlbench_s-210B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.53856
+1.47249
+1.47882
+97.9517
+2.9917
+68.5471
+1.47882
+13 ./600.perlbench_s-210B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.5436
+1.47764
+1.48349
+97.9517
+2.9917
+68.531
+1.48349
+14 ./600.perlbench_s-210B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.54168
+1.47567
+1.4817
+97.9517
+2.9917
+68.4903
+1.4817
+15 ./600.perlbench_s-570B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.59755
+1.52653
+1.53008
+98.1565
+2.5021
+80.1111
+1.53008
+16 ./600.perlbench_s-570B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.60297
+1.53202
+1.53493
+98.1565
+2.5021
+79.9848
+1.53493
+17 ./600.perlbench_s-570B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.57945
+1.50817
+1.51252
+98.1565
+2.5021
+80.2542
+1.51252
+18 ./600.perlbench_s-570B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.61486
+1.54409
+1.54635
+98.1565
+2.5021
+79.912
+1.54635
+19 ./600.perlbench_s-570B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.59794
+1.52692
+1.53027
+98.1565
+2.5021
+79.9441
+1.53027
+20 ./600.perlbench_s-570B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.60318
+1.53223
+1.53489
+98.1565
+2.5021
+80.0439
+1.53489
+21 ./600.perlbench_s-570B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.60211
+1.53116
+1.5344
+98.1565
+2.5021
+79.9148
+1.5344
+22 ./602.gcc_s-1850B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.918647
+0.859973
+0.860175
+96.3029
+8.6793
+49.5732
+0.860175
+23 ./602.gcc_s-1850B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.937722
+0.878581
+0.87854
+96.3029
+8.6793
+49.4488
+0.87854
+24 ./602.gcc_s-1850B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.382793
+0.350136
+0.350244
+96.3029
+8.6793
+55.0212
+0.350244
+25 ./602.gcc_s-1850B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.918647
+0.86002
+0.859623
+96.3029
+8.6793
+49.7079
+0.859623
+26 ./602.gcc_s-1850B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.936797
+0.87768
+0.877599
+96.3029
+8.6793
+49.503
+0.877599
+27 ./602.gcc_s-1850B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.929599
+0.870624
+0.870806
+96.3029
+8.6793
+49.543
+0.870806
+28 ./602.gcc_s-1850B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.921662
+0.862924
+0.862885
+96.3029
+8.6793
+49.5281
+0.862885
+29 ./602.gcc_s-2226B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.687191
+0.635097
+0.63565
+99.5465
+1.5967
+221.145
+0.63565
+30 ./602.gcc_s-2226B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.639983
+0.590325
+0.590624
+99.5465
+1.5967
+220.647
+0.590624
+31 ./602.gcc_s-2226B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.120897
+0.109421
+0.109294
+99.5465
+1.5967
+229.813
+0.109294
+32 ./602.gcc_s-2226B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.738187
+0.683572
+0.684144
+99.5465
+1.5967
+219.96
+0.684144
+33 ./602.gcc_s-2226B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.63367
+0.584354
+0.584902
+99.5465
+1.5967
+220.436
+0.584902
+34 ./602.gcc_s-2226B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.659546
+0.608856
+0.609381
+99.5465
+1.5967
+220.548
+0.609381
+35 ./602.gcc_s-2226B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.607331
+0.559559
+0.559666
+99.5465
+1.5967
+220.844
+0.559666
+36 ./602.gcc_s-2375B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.726053
+0.678239
+0.679308
+92.6791
+13.2446
+37.6869
+0.679308
+37 ./602.gcc_s-2375B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.733628
+0.685584
+0.686303
+92.6791
+13.2446
+37.4459
+0.686303
+38 ./602.gcc_s-2375B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.664259
+0.618525
+0.621698
+92.6791
+13.2446
+39.4639
+0.621698
+39 ./602.gcc_s-2375B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.729069
+0.681171
+0.681255
+92.6791
+13.2446
+37.4843
+0.681255
+40 ./602.gcc_s-2375B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.724992
+0.677206
+0.678501
+92.6791
+13.2446
+37.3152
+0.678501
+41 ./602.gcc_s-2375B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.737103
+0.688955
+0.690776
+92.6791
+13.2446
+37.533
+0.690776
+42 ./602.gcc_s-2375B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.741228
+0.692961
+0.692668
+92.6791
+13.2446
+36.8843
+0.692668
+43 ./602.gcc_s-734B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.047
+0.990864
+0.991723
+99.9549
+0.0954
+151.406
+0.991723
+44 ./602.gcc_s-734B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.04569
+0.989648
+0.990251
+99.9549
+0.0954
+149.256
+0.990251
+45 ./602.gcc_s-734B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.841908
+0.788271
+0.788582
+99.9549
+0.0954
+154.354
+0.788582
+46 ./602.gcc_s-734B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.04964
+0.993582
+0.994014
+99.9549
+0.0954
+146.412
+0.994014
+47 ./602.gcc_s-734B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.04893
+0.992877
+0.993417
+99.9549
+0.0954
+146.885
+0.993417
+48 ./602.gcc_s-734B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.04668
+0.990626
+0.991259
+99.9549
+0.0954
+149.607
+0.991259
+49 ./602.gcc_s-734B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.0478
+0.991743
+0.992238
+99.9549
+0.0954
+148.585
+0.992238
+50 ./603.bwaves_s-1080B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.17833
+2.11541
+2.11288
+94.0847
+6.7365
+83.2174
+2.11288
+51 ./603.bwaves_s-1080B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.1764
+2.11338
+2.11122
+94.0847
+6.7365
+83.2195
+2.11122
+52 ./603.bwaves_s-1080B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.02778
+1.9585
+1.92332
+94.0848
+6.7365
+83.274
+1.92332
+53 ./603.bwaves_s-1080B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.1835
+2.12083
+2.12163
+94.0847
+6.7365
+83.1978
+2.12163
+54 ./603.bwaves_s-1080B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.18242
+2.11969
+2.1185
+94.0847
+6.7365
+83.2132
+2.1185
+55 ./603.bwaves_s-1080B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.17306
+2.10989
+2.10372
+94.0847
+6.7365
+83.2336
+2.10372
+56 ./603.bwaves_s-1080B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.18397
+2.12131
+2.12137
+94.0847
+6.7365
+83.195
+2.12137
+57 ./603.bwaves_s-1740B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.69142
+1.65272
+1.65232
+99.9684
+0.0079
+331.38
+1.65232
+58 ./603.bwaves_s-1740B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.87665
+1.85106
+1.85117
+99.9684
+0.0079
+331.38
+1.85117
+59 ./603.bwaves_s-1740B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.800084
+0.748005
+0.747308
+99.9684
+0.0079
+331.38
+0.747308
+60 ./603.bwaves_s-1740B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.84837
+1.82053
+1.82027
+99.9684
+0.0079
+331.38
+1.82027
+61 ./603.bwaves_s-1740B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.87863
+1.8532
+1.8535
+99.9684
+0.0079
+331.38
+1.8535
+62 ./603.bwaves_s-1740B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.83665
+1.80791
+1.80974
+99.9684
+0.0079
+331.38
+1.80974
+63 ./603.bwaves_s-1740B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.40912
+1.35744
+1.35369
+99.9684
+0.0079
+331.38
+1.35369
+64 ./603.bwaves_s-2609B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.68915
+1.65029
+1.65064
+99.9684
+0.0079
+331.772
+1.65064
+65 ./603.bwaves_s-2609B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.87513
+1.8494
+1.84966
+99.9684
+0.0079
+331.165
+1.84966
+66 ./603.bwaves_s-2609B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.795111
+0.743177
+0.743014
+99.9684
+0.0079
+332.582
+0.743014
+67 ./603.bwaves_s-2609B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.84626
+1.81825
+1.81852
+99.9684
+0.0079
+331.114
+1.81852
+68 ./603.bwaves_s-2609B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.87673
+1.85113
+1.85166
+99.9684
+0.0079
+331.165
+1.85166
+69 ./603.bwaves_s-2609B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.84
+1.8115
+1.81205
+99.9684
+0.0079
+331.418
+1.81205
+70 ./603.bwaves_s-2609B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.46131
+1.41139
+1.40335
+99.9684
+0.0079
+331.696
+1.40335
+71 ./603.bwaves_s-2931B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.88463
+1.81932
+1.81512
+96.7452
+0.2747
+333.978
+1.81512
+72 ./603.bwaves_s-2931B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.30298
+2.25952
+2.25664
+96.7452
+0.2747
+301.794
+2.25664
+73 ./603.bwaves_s-2931B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.0043
+0.93772
+0.936289
+96.7453
+0.2747
+340.791
+0.936289
+74 ./603.bwaves_s-2931B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.2969
+2.25302
+2.25046
+96.7453
+0.2747
+301.628
+2.25046
+75 ./603.bwaves_s-2931B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.28025
+2.23518
+2.23288
+96.7452
+0.2747
+304.207
+2.23288
+76 ./603.bwaves_s-2931B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.20779
+2.15817
+2.15552
+96.7452
+0.2747
+326.454
+2.15552
+77 ./603.bwaves_s-2931B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.28499
+2.24035
+2.23698
+96.7452
+0.2747
+302.087
+2.23698
+78 ./603.bwaves_s-3699B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.14879
+2.08487
+2.08608
+91.2893
+12.4321
+81.9075
+2.08608
+79 ./603.bwaves_s-3699B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.14882
+2.0849
+2.0861
+91.2893
+12.4321
+81.9076
+2.0861
+80 ./603.bwaves_s-3699B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.14797
+2.08402
+2.08532
+91.2893
+12.4321
+81.9172
+2.08532
+81 ./603.bwaves_s-3699B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.14887
+2.08496
+2.08618
+91.2893
+12.4321
+81.9045
+2.08618
+82 ./603.bwaves_s-3699B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.14889
+2.08498
+2.08619
+91.2893
+12.4321
+81.905
+2.08619
+83 ./603.bwaves_s-3699B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.14879
+2.08488
+2.08609
+91.2893
+12.4321
+81.9075
+2.08609
+84 ./603.bwaves_s-3699B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.14891
+2.08499
+2.08621
+91.2893
+12.4321
+81.9046
+2.08621
+85 ./603.bwaves_s-5359B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.14804
+2.08334
+2.08525
+91.3578
+12.2605
+82.9187
+2.08525
+86 ./603.bwaves_s-5359B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.14812
+2.08342
+2.08532
+91.3578
+12.2605
+82.9184
+2.08532
+87 ./603.bwaves_s-5359B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.14306
+2.07814
+2.08056
+91.3578
+12.2605
+82.9214
+2.08056
+88 ./603.bwaves_s-5359B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.14869
+2.08402
+2.08586
+91.3578
+12.2605
+82.918
+2.08586
+89 ./603.bwaves_s-5359B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.14837
+2.08367
+2.08554
+91.3578
+12.2605
+82.9179
+2.08554
+90 ./603.bwaves_s-5359B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.14854
+2.08387
+2.08573
+91.3578
+12.2605
+82.9164
+2.08573
+91 ./603.bwaves_s-5359B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.14803
+2.08332
+2.08527
+91.3578
+12.2605
+82.9176
+2.08527
+92 ./603.bwaves_s-891B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.3619
+1.27539
+1.27544
+99.8668
+0.1014
+341.772
+1.27544
+93 ./603.bwaves_s-891B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.40504
+1.31747
+1.31704
+99.8668
+0.1014
+342.378
+1.31704
+94 ./603.bwaves_s-891B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.414584
+0.377646
+0.377838
+99.8668
+0.1014
+349.293
+0.377838
+95 ./603.bwaves_s-891B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.59226
+1.5014
+1.50059
+99.8668
+0.1014
+340.648
+1.50059
+96 ./603.bwaves_s-891B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.54552
+1.45528
+1.45448
+99.8668
+0.1014
+340.967
+1.45448
+97 ./603.bwaves_s-891B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.37214
+1.28536
+1.28488
+99.8668
+0.1014
+342.38
+1.28488
+98 ./603.bwaves_s-891B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.30939
+1.22429
+1.22536
+99.8668
+0.1014
+343.459
+1.22536
+99 ./605.mcf_s-472B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.703433
+0.651989
+0.668006
+98.4238
+1.6278
+237.203
+0.668006
+100 ./605.mcf_s-472B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.61556
+0.568432
+0.585306
+98.4238
+1.6278
+239.119
+0.585306
+101 ./605.mcf_s-472B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.333589
+0.30445
+0.311889
+98.4238
+1.6278
+238.237
+0.311889
+102 ./605.mcf_s-472B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.688204
+0.637693
+0.655661
+98.4238
+1.6278
+237.221
+0.655661
+103 ./605.mcf_s-472B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.607578
+0.560915
+0.575824
+98.4238
+1.6278
+238.323
+0.575824
+104 ./605.mcf_s-472B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.665571
+0.615887
+0.631985
+98.4238
+1.6278
+238.077
+0.631985
+105 ./605.mcf_s-472B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.700366
+0.64907
+0.664441
+98.4238
+1.6278
+237.648
+0.664441
+106 ./605.mcf_s-484B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.789251
+0.734297
+0.731766
+98.595
+1.2908
+301.851
+0.731766
+107 ./605.mcf_s-484B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.704888
+0.653477
+0.648987
+98.595
+1.2908
+302.429
+0.648987
+108 ./605.mcf_s-484B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.388781
+0.355683
+0.353094
+98.595
+1.2908
+302.058
+0.353094
+109 ./605.mcf_s-484B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.791773
+0.737133
+0.73703
+98.595
+1.2908
+301.841
+0.73703
+110 ./605.mcf_s-484B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.676101
+0.626063
+0.620666
+98.595
+1.2908
+302.177
+0.620666
+111 ./605.mcf_s-484B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.756254
+0.702585
+0.697582
+98.595
+1.2908
+302.069
+0.697582
+112 ./605.mcf_s-484B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.739022
+0.686102
+0.680695
+98.595
+1.2908
+302.058
+0.680695
+113 ./605.mcf_s-665B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.506489
+0.464964
+0.465875
+90.2712
+19.103
+24.8544
+0.465875
+114 ./605.mcf_s-665B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.531895
+0.48877
+0.489521
+90.2712
+19.103
+24.8559
+0.489521
+115 ./605.mcf_s-665B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.464088
+0.425321
+0.425725
+90.2712
+19.103
+24.4342
+0.425725
+116 ./605.mcf_s-665B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.494998
+0.454226
+0.455104
+90.2712
+19.103
+25.0265
+0.455104
+117 ./605.mcf_s-665B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.512283
+0.470385
+0.471051
+90.2712
+19.103
+24.9768
+0.471051
+118 ./605.mcf_s-665B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.512266
+0.470369
+0.471048
+90.2712
+19.103
+24.6062
+0.471048
+119 ./605.mcf_s-665B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.488306
+0.447954
+0.448699
+90.2712
+19.103
+25.361
+0.448699
+120 ./605.mcf_s-782B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.231901
+0.21081
+0.212566
+96.656
+9.6223
+77.907
+0.212566
+121 ./605.mcf_s-782B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.261177
+0.237686
+0.23976
+96.656
+9.62229
+78.167
+0.23976
+122 ./605.mcf_s-782B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.192357
+0.174537
+0.176264
+96.656
+9.62229
+76.754
+0.176264
+123 ./605.mcf_s-782B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.247893
+0.225471
+0.226364
+96.656
+9.62239
+78.7087
+0.226364
+124 ./605.mcf_s-782B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.246005
+0.223739
+0.226777
+96.656
+9.62229
+78.1796
+0.226777
+125 ./605.mcf_s-782B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.231329
+0.210255
+0.211615
+96.656
+9.62229
+77.7865
+0.211615
+126 ./605.mcf_s-782B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.209944
+0.190659
+0.192292
+96.656
+9.62229
+80.8678
+0.192292
+127 ./607.cactuBSSN_s-2421B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.337
+1.2859
+1.28071
+99.5557
+0.0307
+18.2932
+1.28071
+128 ./607.cactuBSSN_s-2421B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.32772
+1.27637
+1.27076
+99.5557
+0.0307
+18.0098
+1.27076
+129 ./607.cactuBSSN_s-2421B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.17549
+1.12128
+1.11231
+99.5557
+0.0307
+17.7134
+1.11231
+130 ./607.cactuBSSN_s-2421B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.32108
+1.26973
+1.26666
+99.5557
+0.0307
+18.6026
+1.26666
+131 ./607.cactuBSSN_s-2421B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.3275
+1.27615
+1.27038
+99.5557
+0.0307
+17.5863
+1.27038
+132 ./607.cactuBSSN_s-2421B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.32172
+1.27018
+1.2666
+99.5557
+0.0307
+17.544
+1.2666
+133 ./607.cactuBSSN_s-2421B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.35178
+1.30091
+1.29512
+99.5557
+0.0307
+17.5472
+1.29512
+134 ./607.cactuBSSN_s-3477B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.29345
+1.24085
+1.24081
+99.9836
+0.0011
+11.7273
+1.24081
+135 ./607.cactuBSSN_s-3477B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.28171
+1.22885
+1.22857
+99.9836
+0.0011
+12.5455
+1.22857
+136 ./607.cactuBSSN_s-3477B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.14148
+1.08665
+1.08555
+99.9836
+0.0011
+15.3636
+1.08555
+137 ./607.cactuBSSN_s-3477B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.27923
+1.22643
+1.2259
+99.9836
+0.0011
+1.2259
+138 ./607.cactuBSSN_s-3477B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.28478
+1.23199
+1.23179
+99.9836
+0.0011
+12.5455
+1.23179
+139 ./607.cactuBSSN_s-3477B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.27946
+1.2265
+1.2263
+99.9836
+0.0011
+15.3636
+1.2263
+140 ./607.cactuBSSN_s-3477B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.30151
+1.24892
+1.24885
+99.9836
+0.0011
+12.9091
+1.24885
+141 ./607.cactuBSSN_s-4248B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.47196
+2.40637
+2.40639
+99.9636
+0.0429
+102.779
+2.40639
+142 ./607.cactuBSSN_s-4248B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.47348
+2.40789
+2.40785
+99.9636
+0.0429
+97.5804
+2.40785
+143 ./607.cactuBSSN_s-4248B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.13212
+2.05265
+2.05273
+99.9636
+0.0429
+290.284
+2.05273
+144 ./607.cactuBSSN_s-4248B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.47341
+2.40782
+2.40779
+99.9636
+0.0429
+98.028
+2.40779
+145 ./607.cactuBSSN_s-4248B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.47348
+2.40789
+2.40785
+99.9636
+0.0429
+97.5804
+2.40785
+146 ./607.cactuBSSN_s-4248B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.47338
+2.40779
+2.40775
+99.9636
+0.0429
+98.3706
+2.40775
+147 ./607.cactuBSSN_s-4248B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.47348
+2.40789
+2.40785
+99.9636
+0.0429
+97.5804
+2.40785
+148 ./619.lbm_s-2676B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.5764
+0.529177
+0.529271
+97.4183
+0.444
+303.632
+0.529271
+149 ./619.lbm_s-2676B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.591784
+0.543596
+0.54378
+97.4183
+0.444
+299.227
+0.54378
+150 ./619.lbm_s-2676B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.504033
+0.461605
+0.46053
+97.4183
+0.444
+320.187
+0.46053
+151 ./619.lbm_s-2676B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.603081
+0.554213
+0.554556
+97.4183
+0.444
+309.363
+0.554556
+152 ./619.lbm_s-2676B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.597437
+0.548895
+0.549273
+97.4183
+0.444
+299.683
+0.549273
+153 ./619.lbm_s-2676B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.58863
+0.540641
+0.540961
+97.4183
+0.444
+301.818
+0.540961
+154 ./619.lbm_s-2676B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.578854
+0.531478
+0.531935
+97.4183
+0.444
+300.927
+0.531935
+155 ./619.lbm_s-3766B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.2398
+1.16233
+1.15808
+99.8995
+0.0107
+323.299
+1.15808
+156 ./619.lbm_s-3766B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.26337
+1.18536
+1.18203
+99.8995
+0.0107
+307.935
+1.18203
+157 ./619.lbm_s-3766B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.914696
+0.848327
+0.847819
+99.8995
+0.0107
+351.402
+0.847819
+158 ./619.lbm_s-3766B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.27948
+1.20113
+1.19787
+99.8995
+0.0107
+333.262
+1.19787
+159 ./619.lbm_s-3766B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.28255
+1.20413
+1.19951
+99.8995
+0.0107
+321.832
+1.19951
+160 ./619.lbm_s-3766B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.23955
+1.16208
+1.15942
+99.8995
+0.0107
+317.477
+1.15942
+161 ./619.lbm_s-3766B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.24519
+1.16758
+1.16466
+99.8995
+0.0107
+314.935
+1.16466
+162 ./619.lbm_s-4268B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.553045
+0.507612
+0.5024
+97.1719
+0.5028
+301.567
+0.5024
+163 ./619.lbm_s-4268B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.568339
+0.521938
+0.51699
+97.1719
+0.5028
+298.077
+0.51699
+164 ./619.lbm_s-4268B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.486763
+0.445748
+0.440836
+97.1719
+0.5028
+319.914
+0.440836
+165 ./619.lbm_s-4268B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.578753
+0.531733
+0.52684
+97.1719
+0.5028
+306.065
+0.52684
+166 ./619.lbm_s-4268B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.573718
+0.526987
+0.521729
+97.1719
+0.5028
+298.202
+0.521729
+167 ./619.lbm_s-4268B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.564743
+0.518573
+0.513785
+97.1719
+0.5028
+302.353
+0.513785
+168 ./619.lbm_s-4268B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.553845
+0.508367
+0.503728
+97.1719
+0.5028
+299.902
+0.503728
+169 ./620.omnetpp_s-141B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.441846
+0.407364
+0.407114
+96.1891
+5.6957
+84.1111
+0.407114
+170 ./620.omnetpp_s-141B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.421607
+0.38827
+0.387821
+96.1891
+5.6957
+85.6273
+0.387821
+171 ./620.omnetpp_s-141B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.402871
+0.370627
+0.369793
+96.1891
+5.6957
+85.884
+0.369793
+172 ./620.omnetpp_s-141B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.404773
+0.372441
+0.372053
+96.1891
+5.6957
+86.5942
+0.372053
+173 ./620.omnetpp_s-141B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.41929
+0.386098
+0.385529
+96.1891
+5.6957
+85.9206
+0.385529
+174 ./620.omnetpp_s-141B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.426631
+0.39301
+0.392513
+96.1891
+5.6957
+85.5263
+0.392513
+175 ./620.omnetpp_s-141B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.40669
+0.37424
+0.373539
+96.1891
+5.6957
+85.5355
+0.373539
+176 ./621.wrf_s-575B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.48609
+1.4147
+1.41529
+98.8915
+1.2371
+183.476
+1.41529
+177 ./621.wrf_s-575B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.48577
+1.41438
+1.415
+98.8915
+1.2371
+183.473
+1.415
+178 ./621.wrf_s-575B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.47826
+1.40682
+1.40819
+98.8915
+1.2371
+183.587
+1.40819
+179 ./621.wrf_s-575B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.48915
+1.41779
+1.41807
+98.8915
+1.2371
+183.465
+1.41807
+180 ./621.wrf_s-575B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.48637
+1.41499
+1.41554
+98.8915
+1.2371
+183.432
+1.41554
+181 ./621.wrf_s-575B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.48787
+1.4165
+1.41691
+98.8915
+1.2371
+183.522
+1.41691
+182 ./621.wrf_s-575B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.48682
+1.41543
+1.41595
+98.8915
+1.2371
+183.458
+1.41595
+183 ./621.wrf_s-6673B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.736
+1.66627
+1.70727
+99.1371
+0.6494
+173.142
+1.70727
+184 ./621.wrf_s-6673B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.76755
+1.69859
+1.74409
+99.1371
+0.6494
+171.17
+1.74409
+185 ./621.wrf_s-6673B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.01487
+0.948088
+0.925878
+99.1371
+0.6494
+218.715
+0.925878
+186 ./621.wrf_s-6673B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.82116
+1.75372
+1.80367
+99.1371
+0.6494
+170.473
+1.80367
+187 ./621.wrf_s-6673B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.78896
+1.72057
+1.76886
+99.1371
+0.6494
+170.864
+1.76886
+188 ./621.wrf_s-6673B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.79041
+1.72212
+1.76212
+99.1371
+0.6494
+171.544
+1.76212
+189 ./621.wrf_s-6673B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.76756
+1.69859
+1.72692
+99.1371
+0.6494
+170.941
+1.72692
+190 ./621.wrf_s-8065B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.753955
+0.699751
+0.750305
+99.2121
+0.3618
+266.143
+0.750305
+191 ./621.wrf_s-8065B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.760057
+0.705616
+0.755006
+99.2121
+0.3618
+263.056
+0.755006
+192 ./621.wrf_s-8065B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.414158
+0.379112
+0.406719
+99.2121
+0.3618
+266.125
+0.406719
+193 ./621.wrf_s-8065B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.847594
+0.789736
+0.843137
+99.2121
+0.3618
+263.918
+0.843137
+194 ./621.wrf_s-8065B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.771507
+0.716546
+0.766814
+99.2121
+0.3618
+264.5
+0.766814
+195 ./621.wrf_s-8065B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.782534
+0.727112
+0.777701
+99.2121
+0.3618
+264.988
+0.777701
+196 ./621.wrf_s-8065B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.760853
+0.706342
+0.756571
+99.2121
+0.3618
+263.666
+0.756571
+197 ./621.wrf_s-8100B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.77918
+1.71713
+1.73427
+98.2849
+1.7905
+113.767
+1.73427
+198 ./621.wrf_s-8100B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.7922
+1.73058
+1.74646
+98.2849
+1.7905
+112.568
+1.74646
+199 ./621.wrf_s-8100B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.68835
+1.62351
+1.64566
+98.2849
+1.7905
+116.739
+1.64566
+200 ./621.wrf_s-8100B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.79891
+1.73758
+1.7519
+98.2849
+1.7905
+113.643
+1.7519
+201 ./621.wrf_s-8100B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.79018
+1.72848
+1.74472
+98.2849
+1.7905
+111.74
+1.74472
+202 ./621.wrf_s-8100B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.79797
+1.73656
+1.7518
+98.2849
+1.7905
+113.479
+1.7518
+203 ./621.wrf_s-8100B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.79148
+1.72983
+1.74543
+98.2849
+1.7905
+111.695
+1.74543
+204 ./623.xalancbmk_s-165B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.91865
+1.85007
+1.85374
+99.9724
+0.0733
+213.539
+1.85374
+205 ./623.xalancbmk_s-165B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.88507
+1.81531
+1.81966
+99.9724
+0.0733
+211.801
+1.81966
+206 ./623.xalancbmk_s-165B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.721965
+0.666831
+0.668623
+99.9724
+0.0733
+249.011
+0.668623
+207 ./623.xalancbmk_s-165B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.01019
+1.94769
+1.95764
+99.9724
+0.0733
+207.087
+1.95764
+208 ./623.xalancbmk_s-165B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.85863
+1.78816
+1.79145
+99.9724
+0.0733
+212.531
+1.79145
+209 ./623.xalancbmk_s-165B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.79275
+1.72057
+1.72812
+99.9724
+0.0733
+217.85
+1.72812
+210 ./623.xalancbmk_s-165B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.73108
+1.65758
+1.66114
+99.9724
+0.0733
+215.371
+1.66114
+211 ./623.xalancbmk_s-202B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.6713
+1.59825
+1.59347
+99.9815
+0.048
+122.86
+1.59347
+212 ./623.xalancbmk_s-202B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.59983
+1.52573
+1.52138
+99.9815
+0.048
+122.965
+1.52138
+213 ./623.xalancbmk_s-202B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.516338
+0.473494
+0.470847
+99.9815
+0.048
+131.825
+0.470847
+214 ./623.xalancbmk_s-202B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.78924
+1.7211
+1.71438
+99.9815
+0.048
+120.129
+1.71438
+215 ./623.xalancbmk_s-202B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.5621
+1.48773
+1.4829
+99.9815
+0.048
+120.817
+1.4829
+216 ./623.xalancbmk_s-202B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.43962
+1.36485
+1.36117
+99.9815
+0.048
+122.552
+1.36117
+217 ./623.xalancbmk_s-202B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.4606
+1.38574
+1.38348
+99.9815
+0.048
+122.271
+1.38348
+218 ./623.xalancbmk_s-325B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.868645
+0.820018
+0.833569
+99.2903
+1.6622
+143.172
+0.833569
+219 ./623.xalancbmk_s-325B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.832647
+0.784609
+0.794681
+99.2903
+1.6622
+143.691
+0.794681
+220 ./623.xalancbmk_s-325B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.827946
+0.779897
+0.789415
+99.2903
+1.6622
+143.991
+0.789415
+221 ./623.xalancbmk_s-325B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.731131
+0.685657
+0.689034
+99.2903
+1.6622
+144.239
+0.689034
+222 ./623.xalancbmk_s-325B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.835528
+0.787367
+0.797545
+99.2903
+1.6622
+143.695
+0.797545
+223 ./623.xalancbmk_s-325B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.802699
+0.755355
+0.763771
+99.2903
+1.6622
+143.289
+0.763771
+224 ./623.xalancbmk_s-325B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.823297
+0.776019
+0.784821
+99.2903
+1.6622
+143.5
+0.784821
+225 ./625.x264_s-12B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.39172
+2.33116
+2.31857
+98.3714
+0.2744
+221.361
+2.31857
+226 ./625.x264_s-12B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.40989
+2.35034
+2.34205
+98.3714
+0.2744
+220.259
+2.34205
+227 ./625.x264_s-12B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.21545
+2.14627
+2.14997
+98.3714
+0.2744
+221.409
+2.14997
+228 ./625.x264_s-12B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.36835
+2.30651
+2.3049
+98.3714
+0.2744
+219.951
+2.3049
+229 ./625.x264_s-12B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.41186
+2.35243
+2.34332
+98.3714
+0.2744
+220.079
+2.34332
+230 ./625.x264_s-12B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.38474
+2.3238
+2.3161
+98.3714
+0.2744
+220.869
+2.3161
+231 ./625.x264_s-12B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.4115
+2.35205
+2.34394
+98.3714
+0.2744
+219.214
+2.34394
+232 ./625.x264_s-18B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.25522
+2.19635
+2.19944
+97.5344
+0.9085
+243.338
+2.19944
+233 ./625.x264_s-18B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.28009
+2.22255
+2.22398
+97.5344
+0.9085
+243.06
+2.22398
+234 ./625.x264_s-18B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.20894
+2.14767
+2.14882
+97.5344
+0.9085
+244.266
+2.14882
+235 ./625.x264_s-18B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.28235
+2.22495
+2.22516
+97.5344
+0.9085
+243.219
+2.22516
+236 ./625.x264_s-18B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.27486
+2.21704
+2.21844
+97.5344
+0.9085
+243.357
+2.21844
+237 ./625.x264_s-18B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.276
+2.21826
+2.22084
+97.5344
+0.9085
+243.396
+2.22084
+238 ./625.x264_s-18B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.29246
+2.23561
+2.23579
+97.5344
+0.9085
+242.244
+2.23579
+239 ./625.x264_s-20B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.52525
+2.50784
+2.47773
+99.1098
+0.2336
+152.47
+2.47773
+240 ./625.x264_s-20B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.50448
+2.4851
+2.45831
+99.1098
+0.2336
+152.342
+2.45831
+241 ./625.x264_s-20B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.75601
+1.69068
+1.7142
+99.1098
+0.2336
+152.65
+1.7142
+242 ./625.x264_s-20B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.34127
+2.30775
+2.29991
+99.1098
+0.2336
+153.554
+2.29991
+243 ./625.x264_s-20B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.11195
+2.06246
+2.06575
+99.1098
+0.2336
+152.271
+2.06575
+244 ./625.x264_s-20B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.49866
+2.47874
+2.45032
+99.1098
+0.2336
+152.853
+2.45032
+245 ./625.x264_s-20B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.54273
+2.527
+2.49522
+99.1098
+0.2336
+151.609
+2.49522
+246 ./625.x264_s-39B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.06306
+1.98001
+1.9744
+93.7431
+2.398
+59.0608
+1.9744
+247 ./625.x264_s-39B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.06588
+1.98289
+1.97648
+93.7431
+2.398
+59.2371
+1.97648
+248 ./625.x264_s-39B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.98723
+1.90261
+1.89937
+93.7431
+2.398
+60.0327
+1.89937
+249 ./625.x264_s-39B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.06829
+1.98537
+1.9784
+93.7431
+2.398
+59.4164
+1.9784
+250 ./625.x264_s-39B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.06975
+1.98685
+1.98016
+93.7431
+2.398
+59.1118
+1.98016
+251 ./625.x264_s-39B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.06805
+1.98511
+1.97861
+93.7431
+2.398
+59.1698
+1.97861
+252 ./625.x264_s-39B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.07378
+1.99098
+1.98406
+93.7431
+2.398
+58.8665
+1.98406
+253 ./631.deepsjeng_s-928B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.22221
+1.15322
+1.1509
+91.5068
+9.4132
+45.0326
+1.1509
+254 ./631.deepsjeng_s-928B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.22337
+1.15437
+1.15181
+91.5068
+9.4132
+45.1136
+1.15181
+255 ./631.deepsjeng_s-928B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.21269
+1.14382
+1.14196
+91.5068
+9.4132
+45.3377
+1.14196
+256 ./631.deepsjeng_s-928B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.22605
+1.15703
+1.15416
+91.5068
+9.4132
+45.0231
+1.15416
+257 ./631.deepsjeng_s-928B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.22438
+1.15537
+1.15276
+91.5068
+9.4132
+44.9738
+1.15276
+258 ./631.deepsjeng_s-928B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.22399
+1.15499
+1.15252
+91.5068
+9.4132
+45.0208
+1.15252
+259 ./631.deepsjeng_s-928B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.22249
+1.1535
+1.15127
+91.5068
+9.4132
+45.0185
+1.15127
+260 ./638.imagick_s-4128B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.56966
+2.54822
+2.54784
+99.5361
+0.8885
+340.693
+2.54784
+261 ./638.imagick_s-4128B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.56922
+2.54782
+2.54736
+99.5361
+0.8885
+340.759
+2.54736
+262 ./638.imagick_s-4128B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.4933
+2.46511
+2.46521
+99.5361
+0.8885
+341.483
+2.46521
+263 ./638.imagick_s-4128B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.56903
+2.54764
+2.54685
+99.5361
+0.8885
+340.888
+2.54685
+264 ./638.imagick_s-4128B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.56362
+2.54171
+2.54119
+99.5361
+0.8885
+341.104
+2.54119
+265 ./638.imagick_s-4128B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.5692
+2.5478
+2.54711
+99.5361
+0.8885
+340.828
+2.54711
+266 ./638.imagick_s-4128B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.57116
+2.54997
+2.5497
+99.5361
+0.8885
+340.795
+2.5497
+267 ./638.imagick_s-824B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.80937
+1.7264
+1.72764
+99.7949
+0.2333
+184.78
+1.72764
+268 ./638.imagick_s-824B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.81153
+1.72859
+1.72971
+99.7949
+0.2333
+184.676
+1.72971
+269 ./638.imagick_s-824B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.74797
+1.66438
+1.66576
+99.7949
+0.2333
+187.315
+1.66576
+270 ./638.imagick_s-824B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.80602
+1.72303
+1.72423
+99.7949
+0.2333
+184.991
+1.72423
+271 ./638.imagick_s-824B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.81176
+1.72882
+1.72992
+99.7949
+0.2333
+184.678
+1.72992
+272 ./638.imagick_s-824B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.81126
+1.72831
+1.72946
+99.7949
+0.2333
+184.668
+1.72946
+273 ./638.imagick_s-824B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.81122
+1.72827
+1.72943
+99.7949
+0.2333
+184.674
+1.72943
+274 ./641.leela_s-1052B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.982573
+0.922215
+0.920742
+84.4385
+16.9079
+28.6948
+0.920742
+275 ./641.leela_s-1052B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.979684
+0.919373
+0.91797
+84.4385
+16.9079
+28.7658
+0.91797
+276 ./641.leela_s-1052B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.962136
+0.902268
+0.901669
+84.4385
+16.9079
+29.3702
+0.901669
+277 ./641.leela_s-1052B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.977746
+0.917464
+0.915973
+84.4385
+16.9079
+28.9306
+0.915973
+278 ./641.leela_s-1052B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.980844
+0.920495
+0.919032
+84.4385
+16.9079
+28.7882
+0.919032
+279 ./641.leela_s-1052B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.970189
+0.910094
+0.90904
+84.4385
+16.9079
+29.2355
+0.90904
+280 ./641.leela_s-1052B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.978571
+0.918274
+0.916884
+84.4385
+16.9079
+28.8293
+0.916884
+281 ./641.leela_s-149B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.02275
+0.960112
+0.961951
+85.7217
+15.5822
+28.5645
+0.961951
+282 ./641.leela_s-149B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.01643
+0.953914
+0.955848
+85.7217
+15.5822
+28.7241
+0.955848
+283 ./641.leela_s-149B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.993037
+0.931132
+0.933224
+85.7217
+15.5822
+29.28
+0.933224
+284 ./641.leela_s-149B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.01249
+0.950059
+0.951671
+85.7217
+15.5822
+28.8789
+0.951671
+285 ./641.leela_s-149B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.01356
+0.951094
+0.952851
+85.7217
+15.5822
+28.8158
+0.952851
+286 ./641.leela_s-149B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.00195
+0.939763
+0.941765
+85.7217
+15.5822
+29.2189
+0.941765
+287 ./641.leela_s-149B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.01099
+0.948584
+0.950411
+85.7217
+15.5822
+28.8421
+0.950411
+288 ./641.leela_s-334B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.97302
+0.912903
+0.91312
+86.1527
+16.139
+30.5149
+0.91312
+289 ./641.leela_s-334B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.973158
+0.913033
+0.913145
+86.1527
+16.139
+30.6876
+0.913145
+290 ./641.leela_s-334B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.965599
+0.905693
+0.905893
+86.1527
+16.139
+30.6826
+0.905893
+291 ./641.leela_s-334B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.973504
+0.913362
+0.913221
+86.1527
+16.139
+30.7265
+0.913221
+292 ./641.leela_s-334B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.971304
+0.911219
+0.911495
+86.1527
+16.139
+30.7277
+0.911495
+293 ./641.leela_s-334B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.97211
+0.912006
+0.912116
+86.1527
+16.139
+30.6573
+0.912116
+294 ./641.leela_s-334B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.972143
+0.91204
+0.912114
+86.1527
+16.139
+30.6235
+0.912114
+295 ./641.leela_s-800B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.972616
+0.912724
+0.913304
+84.4719
+16.2312
+30.3399
+0.913304
+296 ./641.leela_s-800B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.971056
+0.911175
+0.911678
+84.4719
+16.2312
+30.3292
+0.911678
+297 ./641.leela_s-800B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.95414
+0.894711
+0.895734
+84.4719
+16.2312
+30.9011
+0.895734
+298 ./641.leela_s-800B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.96975
+0.909912
+0.910396
+84.4719
+16.2312
+30.4666
+0.910396
+299 ./641.leela_s-800B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.97184
+0.911934
+0.912457
+84.4719
+16.2312
+30.3517
+0.912457
+300 ./641.leela_s-800B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.962644
+0.902959
+0.90367
+84.4719
+16.2312
+30.7807
+0.90367
+301 ./641.leela_s-800B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.970462
+0.910595
+0.911122
+84.4719
+16.2312
+30.4115
+0.911122
+302 ./644.nab_s-5853B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.91703
+1.86323
+1.85855
+99.9322
+0.0507
+81.0769
+1.85855
+303 ./644.nab_s-5853B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.9268
+1.87345
+1.86842
+99.9322
+0.0507
+81.6529
+1.86842
+304 ./644.nab_s-5853B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.80891
+1.75037
+1.74456
+99.9322
+0.0507
+84.8107
+1.74456
+305 ./644.nab_s-5853B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.92288
+1.86933
+1.86583
+99.9322
+0.0507
+82.0197
+1.86583
+306 ./644.nab_s-5853B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.92582
+1.87242
+1.86809
+99.9322
+0.0507
+80.1499
+1.86809
+307 ./644.nab_s-5853B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.91635
+1.86249
+1.85832
+99.9322
+0.0507
+83.7101
+1.85832
+308 ./644.nab_s-5853B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.92483
+1.87139
+1.86544
+99.9322
+0.0507
+80.6963
+1.86544
+309 ./644.nab_s-7928B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.66188
+1.5871
+1.5861
+98.5398
+1.3494
+105.38
+1.5861
+310 ./644.nab_s-7928B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.67484
+1.6001
+1.59858
+98.5398
+1.3494
+104.268
+1.59858
+311 ./644.nab_s-7928B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.45344
+1.37784
+1.37808
+98.5398
+1.3494
+117.071
+1.37808
+312 ./644.nab_s-7928B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.67755
+1.6029
+1.60137
+98.5398
+1.3494
+104.143
+1.60137
+313 ./644.nab_s-7928B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.67747
+1.60276
+1.60148
+98.5398
+1.3494
+103.794
+1.60148
+314 ./644.nab_s-7928B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.66231
+1.58744
+1.58579
+98.5398
+1.3494
+105.86
+1.58579
+315 ./644.nab_s-7928B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.67292
+1.59817
+1.59658
+98.5398
+1.3494
+104.474
+1.59658
+316 ./644.nab_s-9322B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.55072
+1.48327
+1.48525
+98.16
+2.311
+70.5182
+1.48525
+317 ./644.nab_s-9322B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.5566
+1.48921
+1.49108
+98.16
+2.311
+69.5404
+1.49108
+318 ./644.nab_s-9322B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.36821
+1.29919
+1.30065
+98.16
+2.311
+89.7304
+1.30065
+319 ./644.nab_s-9322B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.5567
+1.48931
+1.49109
+98.16
+2.311
+69.481
+1.49109
+320 ./644.nab_s-9322B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.5594
+1.49205
+1.49392
+98.16
+2.311
+69.1776
+1.49392
+321 ./644.nab_s-9322B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.54514
+1.47758
+1.47941
+98.16
+2.311
+70.8707
+1.47941
+322 ./644.nab_s-9322B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.55413
+1.4867
+1.48857
+98.16
+2.311
+69.708
+1.48857
+323 ./648.exchange2_s-1227B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.07544
+2.00032
+1.99556
+96.1601
+5.8932
+49.8494
+1.99556
+324 ./648.exchange2_s-1227B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.07599
+2.00088
+1.99607
+96.1601
+5.8932
+49.8244
+1.99607
+325 ./648.exchange2_s-1227B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.05314
+1.97732
+1.97482
+96.1601
+5.8932
+49.8423
+1.97482
+326 ./648.exchange2_s-1227B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.08999
+2.01534
+2.00909
+96.1601
+5.8932
+49.8497
+2.00909
+327 ./648.exchange2_s-1227B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.07561
+2.0005
+1.99572
+96.1601
+5.8932
+49.831
+1.99572
+328 ./648.exchange2_s-1227B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.08716
+2.01241
+2.00647
+96.1601
+5.8932
+49.8511
+2.00647
+329 ./648.exchange2_s-1227B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.07955
+2.00455
+1.99939
+96.1601
+5.8932
+49.8373
+1.99939
+330 ./648.exchange2_s-1511B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.26405
+2.18775
+2.18893
+96.3177
+5.147
+45.4268
+2.18893
+331 ./648.exchange2_s-1511B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.2648
+2.18852
+2.18963
+96.3177
+5.147
+45.4024
+2.18963
+332 ./648.exchange2_s-1511B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.26384
+2.18753
+2.18874
+96.3177
+5.147
+45.4269
+2.18874
+333 ./648.exchange2_s-1511B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.26488
+2.1886
+2.1897
+96.3177
+5.147
+45.4024
+2.1897
+334 ./648.exchange2_s-1511B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.26487
+2.1886
+2.1897
+96.3177
+5.147
+45.4024
+2.1897
+335 ./648.exchange2_s-1511B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.26457
+2.18829
+2.18942
+96.3177
+5.147
+45.4042
+2.18942
+336 ./648.exchange2_s-1511B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.26447
+2.18818
+2.18932
+96.3177
+5.147
+45.4023
+2.18932
+337 ./648.exchange2_s-1699B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.42354
+2.35597
+2.35458
+97.1381
+3.8655
+48.7006
+2.35458
+338 ./648.exchange2_s-1699B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.42441
+2.35688
+2.3554
+97.1381
+3.8655
+48.6648
+2.3554
+339 ./648.exchange2_s-1699B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.42347
+2.35589
+2.35451
+97.1381
+3.8655
+48.6995
+2.35451
+340 ./648.exchange2_s-1699B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.42423
+2.3567
+2.35523
+97.1381
+3.8655
+48.6852
+2.35523
+341 ./648.exchange2_s-1699B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.42421
+2.35667
+2.35521
+97.1381
+3.8655
+48.6734
+2.35521
+342 ./648.exchange2_s-1699B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.42388
+2.35632
+2.3549
+97.1381
+3.8655
+48.685
+2.3549
+343 ./648.exchange2_s-1699B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.42436
+2.35683
+2.35535
+97.1381
+3.8655
+48.6742
+2.35535
+344 ./648.exchange2_s-1712B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.41865
+2.35501
+2.35884
+97.3918
+3.4985
+48.3395
+2.35884
+345 ./648.exchange2_s-1712B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.41936
+2.35576
+2.35951
+97.3918
+3.4985
+48.3138
+2.35951
+346 ./648.exchange2_s-1712B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.41848
+2.35484
+2.35868
+97.3918
+3.4985
+48.3407
+2.35868
+347 ./648.exchange2_s-1712B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.41934
+2.35575
+2.3595
+97.3918
+3.4985
+48.3208
+2.3595
+348 ./648.exchange2_s-1712B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.41913
+2.35552
+2.35929
+97.3918
+3.4985
+48.3227
+2.35929
+349 ./648.exchange2_s-1712B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.41906
+2.35545
+2.35923
+97.3918
+3.4985
+48.3212
+2.35923
+350 ./648.exchange2_s-1712B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.4193
+2.35569
+2.35945
+97.3918
+3.4985
+48.3287
+2.35945
+351 ./648.exchange2_s-210B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.38451
+2.31605
+2.31895
+97.1129
+3.9104
+49.5159
+2.31895
+352 ./648.exchange2_s-210B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.38507
+2.31666
+2.31949
+97.1129
+3.9104
+49.512
+2.31949
+353 ./648.exchange2_s-210B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.38439
+2.31593
+2.31884
+97.1129
+3.9104
+49.5159
+2.31884
+354 ./648.exchange2_s-210B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.38508
+2.31666
+2.31949
+97.1129
+3.9104
+49.512
+2.31949
+355 ./648.exchange2_s-210B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.38502
+2.31659
+2.31943
+97.1129
+3.9104
+49.5124
+2.31943
+356 ./648.exchange2_s-210B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.38484
+2.31641
+2.31927
+97.1129
+3.9104
+49.5124
+2.31927
+357 ./648.exchange2_s-210B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.38497
+2.31654
+2.31939
+97.1129
+3.9104
+49.512
+2.31939
+358 ./648.exchange2_s-353B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.36759
+2.29606
+2.29283
+96.7115
+4.5312
+46.0946
+2.29283
+359 ./648.exchange2_s-353B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.36789
+2.29637
+2.29311
+96.7115
+4.5312
+46.0815
+2.29311
+360 ./648.exchange2_s-353B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.36751
+2.29597
+2.29276
+96.7115
+4.5312
+46.1005
+2.29276
+361 ./648.exchange2_s-353B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.36807
+2.29657
+2.29329
+96.7115
+4.5312
+46.0873
+2.29329
+362 ./648.exchange2_s-353B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.36783
+2.2963
+2.29305
+96.7115
+4.5312
+46.0882
+2.29305
+363 ./648.exchange2_s-353B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.36792
+2.2964
+2.29314
+96.7115
+4.5312
+46.0917
+2.29314
+364 ./648.exchange2_s-353B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.36786
+2.29633
+2.29308
+96.7115
+4.5312
+46.0851
+2.29308
+365 ./648.exchange2_s-584B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.33975
+2.26966
+2.27042
+96.8409
+4.3947
+48.2972
+2.27042
+366 ./648.exchange2_s-584B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.34023
+2.27016
+2.27087
+96.8409
+4.3947
+48.2844
+2.27087
+367 ./648.exchange2_s-584B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.33966
+2.26956
+2.27033
+96.8409
+4.3947
+48.3003
+2.27033
+368 ./648.exchange2_s-584B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.34024
+2.27016
+2.27087
+96.8409
+4.3947
+48.2844
+2.27087
+369 ./648.exchange2_s-584B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.34017
+2.2701
+2.27082
+96.8409
+4.3947
+48.2943
+2.27082
+370 ./648.exchange2_s-584B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.34011
+2.27005
+2.27077
+96.8409
+4.3947
+48.2846
+2.27077
+371 ./648.exchange2_s-584B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.34017
+2.27011
+2.27082
+96.8409
+4.3947
+48.2844
+2.27082
+372 ./648.exchange2_s-72B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.31834
+2.24492
+2.24539
+96.3387
+4.9865
+45.4854
+2.24539
+373 ./648.exchange2_s-72B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.3193
+2.24592
+2.24629
+96.3387
+4.9865
+45.4636
+2.24629
+374 ./648.exchange2_s-72B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+2.31812
+2.24468
+2.24518
+96.3387
+4.9865
+45.48
+2.24518
+375 ./648.exchange2_s-72B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.31966
+2.24629
+2.24663
+96.3387
+4.9865
+45.4628
+2.24663
+376 ./648.exchange2_s-72B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.31952
+2.24614
+2.24649
+96.3387
+4.9865
+45.4638
+2.24649
+377 ./648.exchange2_s-72B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.31887
+2.24547
+2.24589
+96.3387
+4.9865
+45.4715
+2.24589
+378 ./648.exchange2_s-72B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.31914
+2.24575
+2.24614
+96.3387
+4.9865
+45.4659
+2.24614
+379 ./649.fotonik3d_s-10881B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+0.73867
+0.700589
+0.700108
+99.9933
+0.0008
+347.625
+0.700108
+380 ./649.fotonik3d_s-10881B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+0.783934
+0.745989
+0.745918
+99.9933
+0.0008
+349.625
+0.745918
+381 ./649.fotonik3d_s-10881B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.52233
+0.487706
+0.487871
+99.9933
+0.0008
+350.125
+0.487871
+382 ./649.fotonik3d_s-10881B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+0.58044
+0.54424
+0.543791
+99.9933
+0.0008
+349.75
+0.543791
+383 ./649.fotonik3d_s-10881B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+0.69319
+0.655282
+0.65455
+99.9933
+0.0008
+348.875
+0.65455
+384 ./649.fotonik3d_s-10881B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+0.723596
+0.685562
+0.684903
+99.9933
+0.0008
+347.625
+0.684903
+385 ./649.fotonik3d_s-10881B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+0.757683
+0.719618
+0.718963
+99.9933
+0.0008
+348.875
+0.718963
+386 ./649.fotonik3d_s-1B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.31494
+1.24699
+1.24706
+99.6948
+0.586
+349.067
+1.24706
+387 ./649.fotonik3d_s-1B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.31482
+1.24687
+1.24696
+99.6948
+0.586
+349.065
+1.24696
+388 ./649.fotonik3d_s-1B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.31433
+1.24638
+1.24652
+99.6948
+0.586
+349.09
+1.24652
+389 ./649.fotonik3d_s-1B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.3151
+1.24715
+1.24721
+99.6948
+0.586
+349.065
+1.24721
+390 ./649.fotonik3d_s-1B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.31503
+1.24708
+1.24715
+99.6948
+0.586
+349.065
+1.24715
+391 ./649.fotonik3d_s-1B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.31507
+1.24712
+1.24718
+99.6948
+0.586
+349.065
+1.24718
+392 ./649.fotonik3d_s-1B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.31504
+1.24709
+1.24716
+99.6948
+0.586
+349.065
+1.24716
+393 ./649.fotonik3d_s-8225B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.057
+2.01942
+2.01635
+99.9749
+0.0044
+339.545
+2.01635
+394 ./649.fotonik3d_s-8225B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.09363
+2.05862
+2.05419
+99.9749
+0.0044
+2.05419
+395 ./649.fotonik3d_s-8225B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.732294
+0.67942
+0.671801
+99.9749
+0.0044
+348.432
+0.671801
+396 ./649.fotonik3d_s-8225B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.14964
+2.11911
+2.11768
+99.9749
+0.0044
+340.523
+2.11768
+397 ./649.fotonik3d_s-8225B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.15188
+2.12136
+2.11978
+99.9749
+0.0044
+340.318
+2.11978
+398 ./649.fotonik3d_s-8225B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.12912
+2.09682
+2.09458
+99.9749
+0.0044
+340.318
+2.09458
+399 ./649.fotonik3d_s-8225B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.90728
+1.86007
+1.84721
+99.9749
+0.0044
+340.045
+1.84721
+400 ./654.roms_s-1007B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.75941
+1.68152
+1.68231
+99.9806
+0.0162
+1.68231
+401 ./654.roms_s-1007B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.77178
+1.69402
+1.69406
+99.9806
+0.0162
+1.69406
+402 ./654.roms_s-1007B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.54961
+1.47033
+1.47095
+99.9806
+0.0162
+1.47095
+403 ./654.roms_s-1007B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.77207
+1.69431
+1.69435
+99.9806
+0.0162
+1.69435
+404 ./654.roms_s-1007B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.77216
+1.69439
+1.69443
+99.9806
+0.0162
+1.69443
+405 ./654.roms_s-1007B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.77118
+1.6934
+1.69345
+99.9806
+0.0162
+1.69345
+406 ./654.roms_s-1007B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.7719
+1.69413
+1.69418
+99.9806
+0.0162
+1.69418
+407 ./654.roms_s-1021B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.95367
+1.8722
+1.87342
+3.0693
+116.758
+1.87342
+408 ./654.roms_s-1021B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.95219
+1.8707
+1.87203
+3.0693
+117.148
+1.87203
+409 ./654.roms_s-1021B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.9464
+1.86479
+1.8658
+3.0693
+117.412
+1.8658
+410 ./654.roms_s-1021B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.94987
+1.86832
+1.8696
+3.0693
+117.299
+1.8696
+411 ./654.roms_s-1021B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.9477
+1.86611
+1.86725
+3.0693
+117.384
+1.86725
+412 ./654.roms_s-1021B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.95315
+1.87168
+1.87287
+3.0693
+117.04
+1.87287
+413 ./654.roms_s-1021B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.9528
+1.87132
+1.87259
+3.0693
+117.064
+1.87259
+414 ./654.roms_s-1070B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.19714
+1.1409
+1.15405
+99.8966
+0.1017
+349.674
+1.15405
+415 ./654.roms_s-1070B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.20816
+1.15202
+1.16334
+99.8966
+0.1017
+349.573
+1.16334
+416 ./654.roms_s-1070B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.570642
+0.527571
+0.533318
+99.8966
+0.1017
+350.184
+0.533318
+417 ./654.roms_s-1070B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.23283
+1.17698
+1.19368
+99.8966
+0.1017
+349.573
+1.19368
+418 ./654.roms_s-1070B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.23678
+1.18098
+1.191
+99.8966
+0.1017
+349.574
+1.191
+419 ./654.roms_s-1070B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.15803
+1.1015
+1.10535
+99.8966
+0.1017
+349.571
+1.10535
+420 ./654.roms_s-1070B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.15282
+1.09627
+1.10037
+99.8966
+0.1017
+349.566
+1.10037
+421 ./654.roms_s-1390B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.17148
+1.13213
+1.12349
+99.8047
+0.0638
+350.531
+1.12349
+422 ./654.roms_s-1390B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.31401
+1.28145
+1.27332
+99.8047
+0.0638
+350.531
+1.27332
+423 ./654.roms_s-1390B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.477404
+0.442045
+0.438788
+99.8047
+0.0638
+350.517
+0.438788
+424 ./654.roms_s-1390B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.29929
+1.26591
+1.25821
+99.8047
+0.0638
+350.636
+1.25821
+425 ./654.roms_s-1390B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.31025
+1.27748
+1.26951
+99.8047
+0.0638
+350.539
+1.26951
+426 ./654.roms_s-1390B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.29154
+1.25773
+1.24898
+99.8047
+0.0638
+350.539
+1.24898
+427 ./654.roms_s-1390B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.2886
+1.25465
+1.24693
+99.8047
+0.0638
+350.539
+1.24693
+428 ./654.roms_s-294B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.8515
+1.81642
+1.81767
+99.9277
+0.0363
+321.198
+1.81767
+429 ./654.roms_s-294B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.90673
+1.87553
+1.87637
+99.9277
+0.0363
+320.253
+1.87637
+430 ./654.roms_s-294B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+0.930803
+0.874103
+0.875864
+99.9277
+0.0363
+323.405
+0.875864
+431 ./654.roms_s-294B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.8955
+1.86346
+1.86396
+99.9277
+0.0363
+320.094
+1.86396
+432 ./654.roms_s-294B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.91704
+1.88662
+1.88722
+99.9277
+0.0363
+319.617
+1.88722
+433 ./654.roms_s-294B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.9181
+1.88777
+1.8886
+99.9277
+0.0363
+319.741
+1.8886
+434 ./654.roms_s-294B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.91927
+1.88902
+1.88932
+99.9277
+0.0363
+319.73
+1.88932
+435 ./657.xz_s-2302B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+1.13918
+1.06426
+1.07275
+89.4991
+13.4766
+55.7879
+1.07275
+436 ./657.xz_s-2302B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+1.12537
+1.05088
+1.05866
+89.4991
+13.4766
+55.8196
+1.05866
+437 ./657.xz_s-2302B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.08064
+1.00761
+1.02138
+89.4991
+13.4766
+56.0832
+1.02138
+438 ./657.xz_s-2302B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+1.06487
+0.992373
+0.996445
+89.4991
+13.4766
+57.1293
+0.996445
+439 ./657.xz_s-2302B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+1.13264
+1.05792
+1.06571
+89.4991
+13.4766
+55.9649
+1.06571
+440 ./657.xz_s-2302B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+1.13179
+1.0571
+1.06683
+89.4991
+13.4766
+55.6732
+1.06683
+441 ./657.xz_s-2302B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+1.11754
+1.04329
+1.04839
+89.4991
+13.4766
+56.5035
+1.04839
+442 ./657.xz_s-56B.champsimtrace.xz-perceptron-bingo_dpc3-next_line-next_line-lru-1core.txt
+2.04977
+1.96857
+1.96895
+98.9362
+0.2092
+1.96895
+443 ./657.xz_s-56B.champsimtrace.xz-perceptron-ipcp-ipcp-ipcp-lru-1core.txt
+2.0556
+1.97453
+1.97457
+98.9362
+0.2092
+1.97457
+444 ./657.xz_s-56B.champsimtrace.xz-perceptron-no-no-no-lru-1core.txt
+1.90074
+1.8166
+1.81661
+98.9362
+0.2092
+1.81661
+445 ./657.xz_s-56B.champsimtrace.xz-perceptron-pangloss-pangloss-no-lru-1core.txt
+2.0556
+1.97453
+1.97457
+98.9362
+0.2092
+1.97457
+446 ./657.xz_s-56B.champsimtrace.xz-perceptron-sangam_dpc3-sangam_dpc3-sangam_dpc3-lru-1core.txt
+2.0556
+1.97453
+1.97457
+98.9362
+0.2092
+1.97457
+447 ./657.xz_s-56B.champsimtrace.xz-perceptron-team_12-team_12-team_12-lru-1core.txt
+2.05545
+1.97438
+1.97442
+98.9362
+0.2092
+1.97442
+448 ./657.xz_s-56B.champsimtrace.xz-perceptron-T_SKID190509.021-spp.021-no.021-lru-1core.txt
+2.05551
+1.97443
+1.97449
+98.9362
+0.2092
+1.97449

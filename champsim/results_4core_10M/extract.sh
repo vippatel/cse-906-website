@@ -1,8 +1,8 @@
 
 result=0
 for files in ./*-4core.txt; do
-	((result++))	
+	((result++))
 	echo $result $files
-	cat $files | grep -E "IPC|Accuracy|PREFETCH|PREFETCH REQUESTED|cummulative"
+	cat $files | grep -E "IPC|Accuracy|PREFETCH|PREFETCH REQUESTED|cummulative" | grep -o -E "[0-9]+\.[0-9]*"
 done
 
